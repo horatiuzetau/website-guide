@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="css/style.css">
+    <title>Curriculum</title>
+</head>
+<body>
+
+    <!-- 1. Hero section (find(Build your own website)) -->
+    <div id="hero-section" class="hero">
+
+        <!-- Main navigation (navbar) -->
+        <navbar class="hero__navbar">
+            <div class="hero__logo">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 88.94 82.01"><defs><style>.cls-1{fill:#ffffff;}</style></defs><g id="Layer_2" data-name="Layer 2"><g id="Layer_1-2" data-name="Layer 1"><path class="cls-1" d="M85.09,39.87a13.93,13.93,0,0,0-3.86-1.72L77,37l-3.81-1.06a7.85,7.85,0,0,1-2.84-1.39,2.89,2.89,0,0,1-1.09-2.35,3.41,3.41,0,0,1,1.58-2.87,7.12,7.12,0,0,1,4.2-1.12A6.47,6.47,0,0,1,79.6,29.7a5.42,5.42,0,0,1,1.77,4h7.32A12.08,12.08,0,0,0,84.93,25q-3.62-3.48-9.76-3.48T65.5,24.76a10.31,10.31,0,0,0-3.59,8A10.56,10.56,0,0,0,63,37.68a8.14,8.14,0,0,0,2.79,3.18,14,14,0,0,0,3.81,1.68l4.14,1.16,3.76,1a7.22,7.22,0,0,1,2.8,1.4,3,3,0,0,1,1.08,2.36,3.52,3.52,0,0,1-1.69,3.1A8.64,8.64,0,0,1,75,52.71a7.46,7.46,0,0,1-5.12-1.59,5.63,5.63,0,0,1-1.95-4H60.53a14.27,14.27,0,0,0,.9,4.45,12.44,12.44,0,0,0,2.38,3.89,10.77,10.77,0,0,0,4.35,2.84,18,18,0,0,0,6.4,1Q81,59.36,85,56.27a9.73,9.73,0,0,0,4-8,11.41,11.41,0,0,0-1.06-5.12A8.1,8.1,0,0,0,85.09,39.87Z"/><path class="cls-1" d="M67.16,79.58,37.43,45.74A7.44,7.44,0,0,1,37.67,36L67.16,2.44A7.4,7.4,0,0,1,72.34,0H36.91a7.38,7.38,0,0,0-5.48,2.42l0,0h0l0,0L1.93,36a7.44,7.44,0,0,0-.24,9.72L2,46,31.41,79.57h0v0A7.41,7.41,0,0,0,36.91,82H72.34a7.39,7.39,0,0,1-5.18-2.43Z"/></g></g>
+                </svg>
+            </div>
+            <ul class="hero__tabs">
+                <li class="hero__tabs__item hero__tabs__item--active">Home</li>
+                <li class="hero__tabs__item">First</li>
+                <li class="hero__tabs__item">Second</li>
+            </ul>
+        </navbar>
+
+        <!-- Welcome title -->
+        <div class="hero__title">
+            <h1>Build your own website</h1>
+            <span>- or just show off -</span>
+        </div>
+
+        <!-- Go to the next section button -->
+        <div class="hero__button">
+            <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0" y="0" width="451.847" height="451.847" viewBox="0 0 451.847 451.847" xml:space="preserve"><defs/><style>.cls-1{fill:#ffffff;}</style><g><path class="cls-1" d="M225.923 354.706c-8.098 0-16.195-3.092-22.369-9.263L9.27 151.157c-12.359-12.359-12.359-32.397 0-44.751 12.354-12.354 32.388-12.354 44.748 0l171.905 171.915 171.906-171.909c12.359-12.354 32.391-12.354 44.744 0 12.365 12.354 12.365 32.392 0 44.751L248.292 345.449c-6.177 6.172-14.274 9.257-22.369 9.257z"/></g><g/><g/><g/><g/><g/><g/><g/><g/><g/><g/><g/><g/><g/><g/><g/>
+            </svg>
+        </div>
+
+        <!-- Hero background image. This is positioned behind all the content in this section -->
+        <div class="hero__background">
+            <!-- Always provide value for alt attribute. It helps the users which are not seeing the image to know what should be there -->
+            <img class="hero__image" src="css/img/hero-section/bg-image.jpeg" alt="Hero background image">
+        </div>
+    </div>
+    
+    <!-- 2. Required Technologies (find(Required Technologies)) -->
+    <div id="tech-section" class="tech section">
+        <!-- Section title -->
+        <div class="section__title">
+            <h1>Required Technologies</h1>
+        </div>        
+        <!-- Used technologies list (clickable tabs) -->
+        <div class="tech__tabs">
+            <div tabindex="0" class="tech__tabs__tab tech__tabs__tab--xd">
+                Adobe XD
+            </div>
+            <div tabindex="0" class="tech__tabs__tab tech__tabs__tab--js">
+                JavaScript
+            </div>
+            <div tabindex="0" class="tech__tabs__tab tech__tabs__tab--css">
+                CSS
+            </div>
+            <div tabindex="0" class="tech__tabs__tab tech__tabs__tab--html tech__tabs__tab--active">
+                HTML
+            </div>
+            <!-- Used technology content - clicked tabs will show related box -->
+            <div class="tech__tabs__content">
+                <!-- HTML-BOX -->
+                <div class="box box--active" data-tech="html">
+                    <div class="box__text">
+                        <div class="title-wrapper">
+                            <span>HTML 5</span>
+                            <img src="/css/img/tech-section/html-icon.png" alt="HTML icon">                          
+                        </div>
+                        <ul>
+                            <li>tags (div, p, h1, h2, etc..)</li>
+                            <li>ids (unique identifier for element)</li>
+                            <li>classes (not unique identifier - reusable)</li>
+                            <li>attributes (additional properties of elements)</li>
+                            <li>DOM (Document Object Model)</li>
+                        </ul>
+                    </div>
+                    <div class="box__image">
+                        <img src="/css/img/hero-section/bg-image.jpeg" alt="HTML code">
+                    </div>
+                </div>
+               <!-- CSS-BOX -->
+               <div class="box" data-tech="css">
+                    <!-- Box text -->
+                    <div class="box__text">
+                        <!-- Box text titile -->
+                        <div class="title-wrapper">
+                            <span>CSS (Sass)</span>
+                            <img src="/css/img/tech-section/sass-icon.png" alt="SASS icon">                          
+                        </div>
+                        <!-- Technology specifications -->
+                        <ul>
+                            <li>selectors (classes, ids, elements, etc..)</li>
+                            <li>pseudo-elements (::before, ::after, ::first-line, etc..)</li>
+                            <li>pseudo-classes (:hover, :focus, etc..)</li>
+                            <li>media queries (used for responsiveness)</li>
+                            <li>mixins (used for reusable style blocks)</li>
+                            <li>variables (Sass related)</li>
+                        </ul>
+                    </div>
+                    <!-- Box image wrapper -->
+                    <div class="box__image">
+                        <img src="/css/img/hero-section/bg-image.jpeg" alt="HTML code">
+                    </div>
+                </div>
+               <!-- JavaScript-BOX -->
+               <div class="box" data-tech="js">
+                    <div class="box__text">
+                        <div class="title-wrapper">
+                            <span>JavaScript</span>
+                            <img src="/css/img/tech-section/js-icon.png" alt="  JavaScript icon">
+                        </div>
+                        <ul>
+                            <li>selectors (getElementById, getElementByClassName)</li>
+                            <li>event listeners (addEventListener method)</li>
+                            <li>AJAX (Async Javascript and XML)</li>
+                        </ul>
+                    </div>
+                    <div class="box__image">
+                        <img src="/css/img/hero-section/bg-image.jpeg" alt="HTML code">
+                    </div>
+                </div>
+               <!-- Adobe XD-BOX -->
+               <div class="box" data-tech="xd">
+                    <div class="box__text">
+                        <div class="title-wrapper">
+                            <span>Adobe XD</span>
+                            <img src="/css/img/tech-section/xd-icon.png" alt="  Adobe XD icon">
+                        </div>
+                        <ul>
+                            <li>basic shapes</li>
+                            <li>pen tool</li>
+                            <li>critical properties are easy to modify</li>
+                            <li>layering system</li>
+                            <li>delivering fast and easy to create designs</li>
+                        </ul>
+                    </div>
+                    <div class="box__image">
+                        <img src="/css/img/hero-section/bg-image.jpeg" alt="HTML code">
+                    </div>
+                </div>
+            </div>  
+        </div>
+    </div>
+
+    <!-- 3. Practical example (find(Practical example))-->
+    <div id="practical-section" class="practical section">
+        <div class="section__title">
+            <h1>Practical example</h1>
+        </div>   
+        <!-- Card wrapper -->
+        <div class="card">
+            <!-- Top bar -->
+            <div class="navbar">
+                <!-- Arrow (left) -->
+                <div class="arrow">
+                    <span></span><span></span><span></span>
+                </div>
+                <!-- Languages (center) -->
+                <div class="languages">
+                    <div tabindex="0"><span>En</span></div>
+                    <div tabindex="0"><span>Fr</span></div>
+                </div>
+                <!-- Close button (right) -->
+                <div class="close">
+                    <span></span><span></span>
+                </div>
+            </div>   
+            <!-- Card content  -->
+            <div class="content">
+                <!-- Card text -->
+                <div class="left">
+                    <!-- Title written on two rows -->
+                    <span><strong>My</strong></span><br/>
+                    <span class="thin">Instargam.</span>
+                    <!-- Text as a paragraph -->
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis sed nulla a dolor molestie consectetur. Quisque sagittis id ipsum at pharetra. Phasellus varius condimentum felis et pulvinar. Pellentesque eu gravida justo. Aenean nibh libero, mus, mauris mi imperdiet dui, sit amet tincidunt  lacus. Nam placerat elementum .</p>
+                    <!-- Button for seeing more -->
+                    <button>Vezi multe...</button>
+                </div>
+                <!-- Card image -->
+                <div class="right">
+                    <!-- Image container -->
+                    <div class="image-container">
+                        <img src="/css/img/practical-section/imag.jpg" alt="">
+                        <!-- Image overlay -->
+                        <div class="image-overlay">
+                            <span>ceva deosebit.</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Card footer - social links -->
+            <div class="footer">
+                
+            </div>
+        </div> 
+    </div>
+
+    <div class="parallax parallax--overlay" style="background-image: url(css/img/parallax/first-parallax.jpg)">
+        <!-- <span>text</span> -->
+    </div>
+
+    <!-- 4. Accessibility (find(Accessibility))-->
+    <div id="accessibility-section" class="accessibility section">
+        <div class="section__title">
+            <h1>Accessibility</h1>
+        </div>   
+
+
+
+    </div>
+
+    <!-- 5. Other tools (find(Other tools))-->
+    <div id="tools-section" class="tools section">
+        <div class="section__title">
+            <h1>Other tools</h1>
+        </div>  
+        <!-- Gallery wrapper -->
+        <div class="tools__wrapper">
+            <!-- Link to the tools's website & card object -->
+            <a href="https://www.flaticon.com/" class="tools__wrapper__card">
+                <!-- The left side of the card -->
+                <div class="left">
+                    <div class="image-wrapper">
+                        <img src="css/img/tools-section/flaticon-icon.png" alt="Flaticon icon">                    
+                    </div>
+                    <!-- Title -->
+                    <h3>Flaticon</h3>    
+                </div>
+                <!-- Vertical line - separating title from description -->
+                <span class="vertical-line"></span>
+                <!-- Description -->
+                <span class="text">Free icons in SVG and PNG format.</span>
+            </a>
+            <a href="https://prepros.io/" class="tools__wrapper__card">
+                <div class="left">
+                    <div class="image-wrapper">
+                        <img src="css/img/tools-section/prepros-icon.png" alt="Prepros icon">                    
+                    </div>
+                    <h3>Prepros</h3>    
+                </div>
+                <span class="vertical-line"></span>
+                <span class="text">Sass preprocessing + live updates on file saving.</span>
+            </a>
+            <a href="https://getbootstrap.com/" class="tools__wrapper__card">
+                <div class="left">
+                    <div class="image-wrapper">
+                        <img src="css/img/tools-section/bootstrap-icon.png" alt="Bootstrap icon">                    
+                    </div>
+                    <h3>Bootstrap</h3>    
+                </div>
+                <span class="vertical-line"></span>
+                <span class="text">Css and js library for design.</span>
+            </a>
+            <a href="https://material.io/design" class="tools__wrapper__card">
+                <div class="left">
+                    <div class="image-wrapper">
+                        <img src="css/img/tools-section/material-design-icon.png" alt="Material design icon">                    
+                    </div>
+                    <h3>Mat. design</h3>    
+                </div>
+                <span class="vertical-line"></span>
+                <span class="text">Css and js library for design from Google.</span>
+            </a>    
+            <a href="https://freeicons.io/" class="tools__wrapper__card">
+                <div class="left">
+                    <h3>freeicons.io</h3>    
+                </div>
+                <span class="vertical-line"></span>
+                <span class="text">Free icons in SVG and PNG format.</span>
+            </a>    
+            <a href="https://emmet.io/" class="tools__wrapper__card">
+                <div class="left">
+                    <div class="image-wrapper">
+                        <img src="css/img/tools-section/emmet-icon.png" alt="Emmet icon">                    
+                    </div>
+                    <h3>Emmet</h3>    
+                </div>
+                <span class="vertical-line"></span>
+                <span class="text">Toolkit for generating HTML code based on snippets.</span>
+            </a>    
+            <a href="https://api.jquery.com/" class="tools__wrapper__card">
+                <div class="left">
+                    <div class="image-wrapper">
+                        <img src="css/img/tools-section/jquery-icon.png" alt="jQuery icon">                    
+                    </div>
+                    <h3>jQuery</h3>    
+                </div>
+                <span class="vertical-line"></span>
+                <span class="text">JavaScript library that simplifies event handling, animations, AJAX and more.</span>
+            </a>    
+            <a href="https://www.lipsum.com/" class="tools__wrapper__card">
+                <div class="left">
+                    <h3>Lorem ipsum <br>generator</h3>    
+                </div>
+                <span class="vertical-line"></span>
+                <span class="text">Website that generates mock text. Usefull for filling the design with content.</span>
+            </a>
+        </div>
+    </div>
+    
+    <div class="parallax parallax--overlay" style="background-image: url(css/img/parallax/first-parallax.jpg)">
+        <span>text</span>
+    </div>
+
+    <!-- 6. More (find(More))-->
+    <div id="more-section" class="more section">
+        <div class="section__title">
+            <h1>More</h1>
+            <div class="more__tabs">
+                <div tabindex="0" data-type="youtube" class="more__tabs__tab">
+                    Youtube
+                </div>
+                <div tabindex="0" data-type="challenges" class="more__tabs__tab">
+                    Challenges
+                </div>
+                <div tabindex="0" data-type="battle" class="more__tabs__tab">
+                    Battle
+                </div>
+                <div tabindex="0" data-type="courses" class="more__tabs__tab">
+                    Courses
+                </div>
+                <div tabindex="0" data-type="websites" class="more__tabs__tab">
+                    Cool websites
+                </div>  
+            </div>
+        </div>
+
+        <div class="cards-wrapper">
+            <div class="more__card-wrapper" data-type="websites">
+                <div class="more__card">
+                    <div class="more__card--face">
+                        <h1>Waaark</h1>
+                        <div class="image-container">
+                            <img src="css/img/more-section/waaark.jpg" alt="Waaark website image">                    
+                        </div>
+                    </div>
+                    <div class="more__card--back">
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing, elit. Id rerum inventore, assumenda mos repellat.</p>
+                        <a href="https://waaark.com/">Go to link</a>
+                    </div>
+                </div>
+            </div>
+            <div class="more__card-wrapper" data-type="youtube">
+                <div class="more__card">
+                    <div class="more__card--face">
+                        <h1>Youtube</h1>
+                        <div class="image-container">
+                            <img src="css/img/more-section/waaark.jpg" alt="Waaark website image">                    
+                        </div>
+                    </div>
+                    <div class="more__card--back">
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing, elit. Id rerum inventore, assumenda mos repellat.</p>
+                        <a href="https://waaark.com/">Go to link</a>
+                    </div>
+                </div>
+            </div>
+            <div class="more__card-wrapper" data-type="youtube">
+                <div class="more__card">
+                    <div class="more__card--face">
+                        <h1>Youtube</h1>
+                        <div class="image-container">
+                            <img src="css/img/more-section/waaark.jpg" alt="Waaark website image">                    
+                        </div>
+                    </div>
+                    <div class="more__card--back">
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing, elit. Id rerum inventore, assumenda mos repellat.</p>
+                        <a href="https://waaark.com/">Go to link</a>
+                    </div>
+                </div>
+            </div>    
+            <div class="more__card-wrapper" data-type="challenges">
+                <div class="more__card">
+                    <div class="more__card--face">
+                        <h1>Challenges</h1>
+                        <div class="image-container">
+                            <img src="css/img/more-section/waaark.jpg" alt="Waaark website image">                    
+                        </div>
+                    </div>
+                    <div class="more__card--back">
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing, elit. Id rerum inventore, assumenda mos repellat.</p>
+                        <a href="https://waaark.com/">Go to link</a>
+                    </div>
+                </div>
+            </div>  
+            <div class="more__card-wrapper" data-type="challenges">
+                <div class="more__card">
+                    <div class="more__card--face">
+                        <h1>Challenges</h1>
+                        <div class="image-container">
+                            <img src="css/img/more-section/waaark.jpg" alt="Waaark website image">                    
+                        </div>
+                    </div>
+                    <div class="more__card--back">
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing, elit. Id rerum inventore, assumenda mos repellat.</p>
+                        <a href="https://waaark.com/">Go to link</a>
+                    </div>
+                </div>
+            </div>  
+            <div class="more__card-wrapper" data-type="youtube">
+                <div class="more__card">
+                    <div class="more__card--face">
+                        <h1>Youtube</h1>
+                        <div class="image-container">
+                            <img src="css/img/more-section/waaark.jpg" alt="Waaark website image">                    
+                        </div>
+                    </div>
+                    <div class="more__card--back">
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing, elit. Id rerum inventore, assumenda mos repellat.</p>
+                        <a href="https://waaark.com/">Go to link</a>
+                    </div>
+                </div>
+            </div>  
+        </div>
+    </div>
+
+
+
+
+<script src="js/script.js"></script>
+</body>
+</html>

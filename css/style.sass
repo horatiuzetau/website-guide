@@ -1,0 +1,819 @@
+/** VARIABLES **/
+
+$primary: #2d2b6d
+$secondary: #c92e6d
+$fadedTextOpacity: .7
+
+$moreColors: #2b6d2c, #6d2b6c, #6c6d2b, #6d2c2b, #2b6c6d
+
+$techTabs: [html, css, js, xd]
+$moreTabs: [youtube, battle, challenges, courses, websites]
+
+$overlayOpacity: .75
+
+$navbarHeight: 60px
+
+
+$sectionMargin: 50px 0px
+$sectionTitlePaddingVertical: 20px
+
+$hPadding: 1.5rem
+
+
+$tablet: 720px
+
+// inlocuieste peste tot la square cu squaeer
+/** MIXINS */
+
+@mixin align($hAlign, $vAlign, $flow: row)
+    display: flex
+    justify-content: $hAlign
+    align-items: $vAlign
+    flex-flow: $flow
+
+@mixin center($flow: row)
+    @include align(center, center, $flow)
+
+@mixin blackOverlay($opacity, $color: black)
+    background-color: rgba($color, $opacity)
+    /* Technique for expanding on the whole parent object */
+    position: absolute
+    top: 0
+    left: 0
+    right: 0
+    bottom: 0
+
+@mixin basicTransition($property, $time: .25s, $type: ease-in-out)
+    transition: $property $time $type
+
+@mixin square($l) 
+    width: $l
+    height: $l
+
+*
+    margin: 0
+    padding: 0
+    box-sizing: border-box
+
+a 
+    text-decoration: none
+    color: initial
+
+ul
+    list-style-type: none
+
+
+body 
+    margin: 0 auto
+    padding: 0
+    max-width: 1920px
+
+    .parallax
+        @include center
+        width: 100%
+        height: 350px
+        background-attachment: fixed
+        background-position: center
+        background-repeat: no-repeat
+        background-size: cover
+        position: relative
+
+        span
+            color: white
+            font-family: sans-serif
+            letter-spacing: 10px
+            z-index: 1
+            font-size: 2rem
+            font-weight: 700
+            text-shadow: 3px 3px 10px rgba(black, .5)
+
+        &--overlay
+            &::after
+                content: ''
+                @include blackOverlay(.85, $primary)
+
+    .section
+        position: relative
+        margin: $sectionMargin
+        padding: 0 $hPadding
+
+        &__title
+            @include align(flex-start, center)
+            margin-bottom: 20px
+            position: relative
+            right: 0
+            letter-spacing: 3px
+
+            h1
+                @include basicTransition(text-shadow)
+                @include center
+                padding: $sectionTitlePaddingVertical $sectionTitlePaddingVertical $sectionTitlePaddingVertical $sectionTitlePaddingVertical / 2
+                color: $primary
+                font-weight: 600
+                width: max-content
+
+                &:hover
+                    &::before
+                        opacity: 1
+                        left: -10px
+
+                &::before, &::after
+                    content: ''
+                    position: absolute
+                    background-color: $primary
+
+                &::before
+                    @include basicTransition(all, .5s, cubic-bezier(0.57, 0.35, 0.49, 1.21))
+                    left: 50%
+                    width: 10px
+                    height: 10px
+                    border-radius: 50%
+                    opacity: 0
+
+                &::after
+                    width: 95%
+                    height: 3px
+                    right: 0
+                    bottom: 0
+
+
+            &--right
+                justify-content: flex-end
+    
+    /* 1. Hero section (find(Build your own website)) */
+    /* This was written in BEM -> Block-Element-Modifier */
+    .hero
+        @include center
+        position: relative
+        width: 100%
+        height: 100vh
+        max-height: 1280px
+
+        /* Main navigation (navbar) */
+        &__navbar
+            @include align(space-between, center)
+            position: absolute
+            top: 0
+            width: 100%
+            height: $navbarHeight
+            padding: 0 $hPadding
+
+        &__logo
+            height: 100%
+            padding: 15px 0
+
+            svg
+                height: 100%
+
+        &__tabs
+            @include align(center, center)            
+            height: 100%
+
+            &__item
+                @include center
+                @include basicTransition(opacity)
+                height: 100%
+                padding: 0px 10px
+                cursor: pointer
+                font-family: sans-serif
+                color: white
+                font-size: 1.2rem
+                opacity: $fadedTextOpacity
+
+                &--active
+                    color: $secondary
+                    opacity: 1
+
+                &:hover
+                    opacity: 1
+
+        /* Welcome title */
+        &__title
+            @include center(column)
+            color: white
+
+            h1
+                font-size: 4rem
+
+            span
+                font-size: 2rem
+                font-style: oblique
+                opacity: .45
+
+        /* Go to the next section button */
+        &__button
+            @include basicTransition(padding)
+            position: absolute
+            bottom: $hPadding
+            color: white
+            cursor: pointer
+
+            svg
+                width: 30px
+                height: 30px
+
+            &:hover
+                padding-bottom: 10px
+
+        /* Hero background image */
+        &__background
+            width: 100%
+            height: 100%
+            position: absolute
+            z-index: -1
+
+            img
+                width: 100%
+                height: 100%
+                object-fit: cover
+                object-position: center
+
+            &::after
+                @include blackOverlay($overlayOpacity, darken($primary, 25))
+                content: ''
+    
+    /* 2. Required Technologies (find(Required Technologies)) */
+    .tech
+        /* Used technologies list (clickable tabs) */
+        &__tabs
+            @include align(flex-end, center)
+            width: 100%
+            flex-wrap: wrap
+            flex-direction: row-reverse // reverse them, because ~ only points to the preceding items; it would be impossible to set the normal bg color for default active tab when other tab is pressed
+
+            &__tab
+                @include basicTransition(background-color)
+                outline: none
+                cursor: pointer
+                padding: 15px 30px
+                margin-right: 10px
+                background-color: $primary
+                color: white
+                font-weight: 700
+                border-top-left-radius: 7px
+                border-top-right-radius: 7px
+
+                &--active // The dafult active one gets active background
+                    background-color: $secondary
+                    
+                &:focus
+                    ~.tech__tabs__tab--active // When one of the tabs is focused, the default active tab gets normal background
+                        background-color: $primary
+
+            @each $tab in $techTabs
+                &__tab--#{$tab} // On focus action for every tab, its related box will be shown
+                    &:focus
+                        background-color: $secondary!important // Color the tab to show its activeness
+                        &~.tech__tabs__content
+                            .box--active // Hide the default active box
+                                display: none
+                            .box[data-tech=#{$tab}] // Show the related box
+                                display: flex
+            
+            /* Used technology content - clicked tabs will show related box */
+            &__content
+                border-top: 5px solid $primary
+                border-right: 5px solid $primary
+                flex-basis: 100%
+                // box-shadow: 0 6px 10px 1px rgba(black, .3)
+                /* Technology box */
+                .box
+                    @include center
+                    width: 100%
+                    height: 500px
+                    display: none
+
+                    /* Display the active default one */
+                    &--active
+                        display: flex
+                    
+                    /* Text content of the box */
+                    &__text
+                        @include align(flex-start, flex-start, column)
+                        width: 45%
+                        height: 100%
+                        padding: $hPadding
+                        position: relative
+
+                        /* Title of the text content */
+                        .title-wrapper
+                            @include align(space-between, center)
+                            width: 100%
+                            padding: 20px 0
+                            position: relative
+
+                            &:after
+                                content: ''
+                                position: absolute
+                                width: 100%
+                                height: 1px
+                                bottom: 0px
+                                left: 0px
+                                background-color: rgba($primary, .35)
+
+                            span
+                                font-size: 1.8rem
+                                font-weight: 700
+                                font-family: sans-serif
+
+                            img
+                                right: $hPadding
+                                top: $hPadding
+                                width: 75px
+                                height: 75px
+                                align-self: flex-end
+
+                        /* Information of the text content */
+                        ul 
+                            padding: 20px $hPadding
+                            list-style-type: disc
+                            li
+                                font-size: 1.6rem
+
+                    /* Image of the box */
+                    &__image
+                        @include align(flex-end, center)
+                        height: 95%
+                        width: 50%
+                        overflow: hidden
+                        padding: $hPadding 
+                        img
+                            width: 100%
+                            height: 100%
+                            object-fit: cover
+                            object-position: center
+    
+    /* WRITE COMMENTS HERE */
+    /* 3. Practical Example (find(Practical Example)) */
+    .practical
+        @include center(column)
+        overflow: hidden
+        padding-top: 100px
+        padding-bottom: 100px
+        margin-bottom: 0
+        position: relative
+        box-shadow: 0 0 10px 1px rgba(black, .05)
+
+        /* Background image pattern for practical section */
+        &:after 
+            content: ''
+            position: absolute
+            width: 100%
+            height: 100%
+            left: 0
+            top: 0
+            z-index: -1
+            opacity: .15
+            background:
+                image: url(/css/img/practical-section/pattern.jpg)
+                position: center
+                repeat: repeat
+
+        .section__title
+            width: 100%
+            align-self: flex-start
+
+        /* Card wrapper */
+        .card
+            width: 90%
+            max-width: 960px
+            height: 500px
+            margin: 50px 5%
+            background-color: #2B5A84
+            box-shadow: 0 0 10px 4px rgba(black, .45)
+            border-radius: 10px
+
+            /* Top bar */
+            .navbar
+                @include align(space-between, center)
+                height: 50px
+                padding: 0 $hPadding
+
+                /* Languages (center) */
+                .languages
+                    @include center
+
+                    div
+                        @include square(30px)
+                        @include align(center, center)
+                        @include basicTransition(border-width)
+                        cursor: pointer
+                        margin: 0 10px
+                        position: relative
+                        border-radius: 50%
+                        border: 1px solid white
+                        outline: none
+                        span
+                            @include basicTransition(color)
+                            font: 
+                                family: sans-serif
+                                size: 0.9em
+                                weight: 700
+                            color: white
+                        &:hover
+                            border-width: 15px
+                            span
+                                color: $primary
+                        &:focus
+                            background-color: white
+                            transform: scale(2)
+                            box-shadow: 0 0 10px 2px rgba(black, .15)
+                            span
+                                color: $primary
+                /* Common properties for right & left buttons */
+                .close, .arrow
+                    @include square($hPadding)
+                    cursor: pointer
+                    position: relative
+
+                    span 
+                        position: absolute
+                        background-color: white
+                        border-radius: 20px
+                        height: 3px
+                        transition: all .3s ease-in-out
+
+                /* Arrow (left) */
+                .arrow
+                    @include align(flex-start, center)
+
+                    span
+                        transform-origin: left
+
+                        &:nth-child(1), &:nth-child(3)
+                            width: 50%
+                        &:nth-child(2)
+                            transform-origin: right
+                            width: 100%
+                        &:nth-child(1)
+                            transform: rotate(-45deg) translateY(1px)
+                        &:nth-child(3)
+                            transform: rotate(45deg) translateY(-1px)
+
+                    /* Hover effect for changing its shape - this can be applied on a hamburger */
+                    &:hover
+                        span
+                            &:nth-child(1)
+                                transform: rotate(0deg) translateY(-7px)
+                            &:nth-child(3)
+                                width: 75%
+                                transform: rotate(0deg) translateY(7px)
+                /* Close button (right) */
+                .close
+                    @include center
+                    span
+                        @include basicTransition(transform)
+                        width: 100%
+                        &:nth-child(1)
+                            transform: rotate(45deg)
+                        &:nth-child(2)
+                            transform: rotate(-45deg)
+
+                    /* Hover effect */
+                    &:hover
+                        span
+                            &:nth-child(1)
+                                transform: rotate(-45deg)
+                            &:nth-child(2)
+                                transform: rotate(45deg)
+
+            /* Card content */
+            .content
+                @include align(center, flex-start)
+                padding: 20px $hPadding * 2 0px
+                height: 75%
+
+                /* Card text */
+                .left
+                    width: 50%
+                    span
+                        font-family: sans-serif
+                        letter-spacing: 3px
+                        font-size: 3.3em
+                        color: white
+                    .thin
+                        word-break: word-break
+                        opacity: .65   
+                        font-weight: 300
+                    p
+                        font-family: sans-serif
+                        font-size: 1em
+                        color: rgba(white, 0.65)
+                        padding: 15px 0
+                    button
+                        @include basicTransition(all)
+                        padding: 10px 20px
+                        background-color: transparent
+                        border: 1px solid white
+                        color: white
+                        font-family: sans-serif
+                        border-radius: 5px
+                        outline: none
+                        cursor: pointer
+                        &:hover
+                            background-color: white
+                            color: $primary
+
+                /* Card image */
+                .right
+                    @include align(center, flex-start)
+                    width: 50%
+                    height: 100%
+                    position: relative
+
+                    /* Image wrapper */
+                    .image-container
+                        position: absolute
+                        height: 100%
+                        width: 115%
+                        z-index: 2
+                        transform: translateX(15%)
+                        box-shadow: 3px 6px 10px 5px rgba(black, .25)
+                        cursor: pointer
+
+                        .image-overlay
+                            @include center
+                            @include basicTransition(all)
+                            @include square(100%)
+                            position: absolute
+                            top: 0
+                            left: 0
+                            z-index: 2
+                            background-color: rgba(black, .65)
+                            opacity: 0
+                            span
+                                color: white
+                                letter-spacing: 3px
+                                font-size: 1.4em
+
+                        img
+                            position: relative
+                            z-index: 2
+                            width: 100%
+                            height: 100%
+                            object-fit: cover
+                        /* After & before for hover effect on image */
+                        &:after, &:before
+                            @include basicTransition(all)
+                            content: ''
+                            position: absolute
+                            width: 100%
+                            height: 100%
+                            background-color: black
+                            z-index: 1
+                            opacity: 0.5
+                        &:after
+                            bottom: -10px
+                            left: -10px
+                        &:before
+                            top: -10px 
+                            right: -10px
+
+                        &:hover
+                            &:after
+                                bottom: 20px
+                                left: 20px
+                            &:before
+                                top: 20px
+                                right: 20px
+                            .image-overlay
+                                opacity: 1
+
+    /* 4. Accessibility */
+    .accessibility
+        background-color: $primary
+        margin-top: 0
+        // margin-bottom: 200px
+        height: 700px
+        position: relative
+
+        &::before
+            content: ''
+            position: absolute
+            height: 200px
+            left: 0
+            right: 0
+            background: rgb(45,43,109)
+
+        &::before
+            top: -200px
+            background: linear-gradient(0deg, rgba(45,43,109,1) 0%, rgba(255,255,255,0) 100%)
+
+        .section__title
+            margin: 0
+        
+            h1
+                color: white
+                text-shadow: none
+                &::after, &::before
+                    background-color: white
+
+    /* 5. Other tools (find(Other tools)) */
+    .tools
+        /* Gallery wrapper */
+        &__wrapper
+            @include align(space-between, center)
+            width: 100%
+            flex-wrap: wrap
+            /* Card */
+            &__card
+                @include align(center, center)
+                @include basicTransition(box-shadow)
+                width: 24.5%
+                align-self: stretch
+                padding: $hPadding
+                margin-bottom: 30px
+                box-shadow: 0 0 0 1px rgba($primary, .2) inset
+
+                &:hover
+                    box-shadow: 0 0 0 3px $primary inset,
+                    0 0 0 5px white inset,
+                    0 0 0 12px $primary inset
+
+                /* Left side of the card -> title + logo */
+                .left
+                    @include center(column)
+
+                    /* This can be usefull if we want to add background color to it. Also, it assures that the images stay on some delimited size */
+                    .image-wrapper
+                        @include center
+                        width: 70px
+                        height: 70px
+                        background-color: #ffffff
+                        border-radius: 50%
+                        padding: 8px
+
+                        img
+                            height: 90%
+
+                    h3
+                        font-size: 1.2rem
+                        text-align: center
+                        font-family: sans-serif
+
+                /* Delimit the title from the description */
+                .vertical-line
+                    width: 2px
+                    height: 30px
+                    margin: 0 20px
+                    background-color: rgba($primary, .4)
+
+                /* Description */
+                .text
+                    width: 100%
+                    max-width: 200px
+
+    /* 6. More (find(More)) */
+    .more
+        width: 100%
+
+        &__tabs
+            @include align(flex-end, center)
+            flex-wrap: wrap
+            flex-direction: row-reverse // reverse them, because ~ only points to the preceding items; it would be impossible to set the normal bg color for default active tab when other tab is pressed
+
+            &__tab
+                @include basicTransition(all)
+                cursor: pointer
+                padding: 10px 20px
+                font-family: sans-serif
+                font-weight: 700
+                outline: none
+
+                &:hover
+                    opacity: .7
+                
+                &--active
+                    color: white
+                    background-color: $secondary
+
+        .section__title
+            padding: 0 5px
+            justify-content: space-between
+
+        /* Wrapper for cards, so we can flex them as a gallery */
+        .cards-wrapper
+            @include align(flex-start, center)
+            flex-wrap: wrap
+            width: 100%
+
+        /* We use a wrapper around the card, so that the hover effect does not depend on the card position */
+        &__card-wrapper
+            perspective: 4500
+            perspective-origin: center
+            flex-basis: 25%
+            transition: transform .4s ease-out, flex .0s linear,
+            opacity .5s ease-in-out
+            overflow: hidden
+
+            @for $i from 1 through 20
+                &:nth-child(#{length($moreColors)}n+#{$i})
+                    .more__card--face .image-container::after
+                        @include blackOverlay(.75, nth($moreColors, random(length($moreColors))))
+                        content: ''
+
+            &:hover
+                .more__card
+                    transform: rotateY(180deg)
+
+            &.invisible
+                flex-basis: 0px
+                opacity: 0
+                // transition: transform .4s ease-out, flex .0s linear .05s,
+                // opacity .5s ease-in-out
+                transform: scale(0)
+        /* Card */
+        &__card
+            @include basicTransition(transform, .75s, ease-out)
+            height: 256px
+            position: relative
+            // transform: rotateY(180deg)
+            // box-shadow: 0 0 10px 3px rgba(black, .15)
+            transform-style: preserve-3d
+            border: 5px solid white                
+
+            &--face, &--back
+                width: 100%
+                height: 100%
+
+            /* Card face */
+            &--face
+                @include center
+                backface-visibility: hidden
+                pointer-events: none
+
+                /* Background image */
+                .image-container
+                    position: absolute
+                    width: 100%
+                    height: 100%
+                    object-fit: cover
+                    
+                    img
+                        height: 100%
+                        width: 100%
+                        object-position: center
+                        object-fit: cover
+
+                /* Title */
+                h1
+                    color: white
+                    z-index: 1
+                    font-size: 2.5rem
+                    letter-spacing: 5px
+
+            /* Card back */
+            &--back
+                @include center(column)
+                position: absolute
+                top: 0
+                left: 0
+                transform: rotateY(180deg)
+                z-index: -1
+                background-image: url('/css/img/more-section/card-bg.jpg')
+
+                &::after
+                    content: ''
+                    @include blackOverlay(.75, $primary)
+                    z-index: -1
+
+                /* Description */
+                p
+                    padding: 0 10px     
+                    text-align: center
+                    color: white
+                    font-size: 1.1em
+
+                /* Button */
+                a
+                    @include basicTransition(background-color)
+                    padding: 10px 20px
+                    color: white
+                    border: 1px solid white
+                    border-radius: 5px
+                    margin: 10px 0
+
+                    &:hover
+                        background-color: $secondary
+
+@media screen and (max-width: $tablet)
+    /* Practical example */
+    .card 
+        height: auto!important
+        padding-bottom: 40px
+        .content
+            padding: 25px!important
+            height: auto!important
+            flex-flow: column!important
+            .left, .right
+                width: 100%!important        
+            .left
+                padding-top: 40px
+                order: 2
+            .right
+                order: 1
+                .image-container
+                    position: relative!important
+                    height: 350px!important
+                    transform: translateX(0px)!important
+
