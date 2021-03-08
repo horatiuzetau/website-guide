@@ -239,31 +239,31 @@ body
             @include align(flex-end, center)
             width: 100%
             flex-wrap: wrap
+            padding: 0 10px 
             flex-direction: row-reverse // reverse them, because ~ only points to the preceding items; it would be impossible to set the normal bg color for default active tab when other tab is pressed
 
             &__tab
-                @include basicTransition(background-color)
+                @include basicTransition(all)
                 outline: none
                 cursor: pointer
                 padding: 15px 30px
-                margin-right: 10px
-                background-color: $primary
-                color: white
+                color: $primary
                 font-weight: 700
-                border-top-left-radius: 7px
-                border-top-right-radius: 7px
 
                 &--active // The dafult active one gets active background
+                    color: white
                     background-color: $secondary
                     
                 &:focus
                     ~.tech__tabs__tab--active // When one of the tabs is focused, the default active tab gets normal background
-                        background-color: $primary
+                        background-color: white
+                        color: $primary
 
             @each $tab in $techTabs
                 &__tab--#{$tab} // On focus action for every tab, its related box will be shown
                     &:focus
-                        background-color: $secondary!important // Color the tab to show its activeness
+                        color: white
+                        background-color: $secondary // Color the tab to show its activeness
                         &~.tech__tabs__content
                             .box--active // Hide the default active box
                                 display: none
@@ -272,11 +272,7 @@ body
             
             /* Used technology content - clicked tabs will show related box */
             &__content
-                border-top: 5px solid $primary
-                border-right: 5px solid $primary
                 flex-basis: 100%
-                // box-shadow: 0 6px 10px 1px rgba(black, .3)
-                /* Technology box */
                 .box
                     @include center
                     width: 100%
@@ -290,7 +286,7 @@ body
                     /* Text content of the box */
                     &__text
                         @include align(flex-start, flex-start, column)
-                        width: 45%
+                        width: 50%
                         height: 100%
                         padding: $hPadding
                         position: relative
@@ -305,7 +301,7 @@ body
                             &:after
                                 content: ''
                                 position: absolute
-                                width: 100%
+                                width: 70%
                                 height: 1px
                                 bottom: 0px
                                 left: 0px
@@ -315,6 +311,7 @@ body
                                 font-size: 1.8rem
                                 font-weight: 700
                                 font-family: sans-serif
+                                color: $primary
 
                             img
                                 right: $hPadding
@@ -325,10 +322,15 @@ body
 
                         /* Information of the text content */
                         ul 
-                            padding: 20px $hPadding
-                            list-style-type: disc
+                            @include align(space-between, flex-start, column)
+                            padding: 20px 0
+                            height: 100%
+
                             li
                                 font-size: 1.6rem
+
+                                &:hover
+                                    background-color: yellow
 
                     /* Image of the box */
                     &__image
@@ -578,11 +580,10 @@ body
                             .image-overlay
                                 opacity: 1
 
-    /* 4. Accessibility */
+    /* 4. Accessibility (find(Accessibility)) */
     .accessibility
         background-color: $primary
         margin-top: 0
-        // margin-bottom: 200px
         height: 700px
         position: relative
 
@@ -607,6 +608,22 @@ body
                 &::after, &::before
                     background-color: white
 
+        &__card__wrapper
+            @include align(center, center)
+            flex-wrap: wrap
+            width: 100%
+            margin-top: 50px
+
+        &__card
+            @include align(flex-start, center)
+            flex-basis: 25%
+            padding: 20px
+            // color: white
+            font-weight: 600
+            border: 5px solid $primary
+            background-color: darken(white, 10)
+
+
     /* 5. Other tools (find(Other tools)) */
     .tools
         /* Gallery wrapper */
@@ -625,9 +642,7 @@ body
                 box-shadow: 0 0 0 1px rgba($primary, .2) inset
 
                 &:hover
-                    box-shadow: 0 0 0 3px $primary inset,
-                    0 0 0 5px white inset,
-                    0 0 0 12px $primary inset
+                    box-shadow: 0 0 0 3px $primary inset, 0 0 0 5px white inset, 0 0 0 12px $primary inset
 
                 /* Left side of the card -> title + logo */
                 .left
@@ -701,8 +716,7 @@ body
             perspective: 4500
             perspective-origin: center
             flex-basis: 25%
-            transition: transform .4s ease-out, flex .0s linear,
-            opacity .5s ease-in-out
+            transition: transform .4s ease-out, flex .0s linear, opacity .5s ease-in-out
             overflow: hidden
 
             @for $i from 1 through 20
