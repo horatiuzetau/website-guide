@@ -373,7 +373,7 @@ body .tech__tabs__content .box__image {
   justify-content: flex-end;
   align-items: center;
   flex-flow: row;
-  height: 95%;
+  height: 100%;
   width: 50%;
   overflow: hidden;
   padding: 1.5rem;
@@ -830,7 +830,7 @@ body .more__card-wrapper {
   overflow: hidden;
 }
 body .more__card-wrapper:nth-child(5n+1) .more__card--face .image-container::after {
-  background-color: rgba(43, 108, 109, 0.75);
+  background-color: rgba(43, 109, 44, 0.75);
   /* Technique for expanding on the whole parent object */
   position: absolute;
   top: 0;
@@ -850,7 +850,7 @@ body .more__card-wrapper:nth-child(5n+2) .more__card--face .image-container::aft
   content: "";
 }
 body .more__card-wrapper:nth-child(5n+3) .more__card--face .image-container::after {
-  background-color: rgba(43, 109, 44, 0.75);
+  background-color: rgba(109, 44, 43, 0.75);
   /* Technique for expanding on the whole parent object */
   position: absolute;
   top: 0;
@@ -860,7 +860,7 @@ body .more__card-wrapper:nth-child(5n+3) .more__card--face .image-container::aft
   content: "";
 }
 body .more__card-wrapper:nth-child(5n+4) .more__card--face .image-container::after {
-  background-color: rgba(109, 44, 43, 0.75);
+  background-color: rgba(109, 43, 108, 0.75);
   /* Technique for expanding on the whole parent object */
   position: absolute;
   top: 0;
@@ -890,46 +890,6 @@ body .more__card-wrapper:nth-child(5n+6) .more__card--face .image-container::aft
   content: "";
 }
 body .more__card-wrapper:nth-child(5n+7) .more__card--face .image-container::after {
-  background-color: rgba(108, 109, 43, 0.75);
-  /* Technique for expanding on the whole parent object */
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  content: "";
-}
-body .more__card-wrapper:nth-child(5n+8) .more__card--face .image-container::after {
-  background-color: rgba(109, 43, 108, 0.75);
-  /* Technique for expanding on the whole parent object */
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  content: "";
-}
-body .more__card-wrapper:nth-child(5n+9) .more__card--face .image-container::after {
-  background-color: rgba(108, 109, 43, 0.75);
-  /* Technique for expanding on the whole parent object */
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  content: "";
-}
-body .more__card-wrapper:nth-child(5n+10) .more__card--face .image-container::after {
-  background-color: rgba(109, 43, 108, 0.75);
-  /* Technique for expanding on the whole parent object */
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  content: "";
-}
-body .more__card-wrapper:nth-child(5n+11) .more__card--face .image-container::after {
   background-color: rgba(43, 108, 109, 0.75);
   /* Technique for expanding on the whole parent object */
   position: absolute;
@@ -939,8 +899,8 @@ body .more__card-wrapper:nth-child(5n+11) .more__card--face .image-container::af
   bottom: 0;
   content: "";
 }
-body .more__card-wrapper:nth-child(5n+12) .more__card--face .image-container::after {
-  background-color: rgba(109, 44, 43, 0.75);
+body .more__card-wrapper:nth-child(5n+8) .more__card--face .image-container::after {
+  background-color: rgba(43, 108, 109, 0.75);
   /* Technique for expanding on the whole parent object */
   position: absolute;
   top: 0;
@@ -949,7 +909,17 @@ body .more__card-wrapper:nth-child(5n+12) .more__card--face .image-container::af
   bottom: 0;
   content: "";
 }
-body .more__card-wrapper:nth-child(5n+13) .more__card--face .image-container::after {
+body .more__card-wrapper:nth-child(5n+9) .more__card--face .image-container::after {
+  background-color: rgba(43, 108, 109, 0.75);
+  /* Technique for expanding on the whole parent object */
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  content: "";
+}
+body .more__card-wrapper:nth-child(5n+10) .more__card--face .image-container::after {
   background-color: rgba(108, 109, 43, 0.75);
   /* Technique for expanding on the whole parent object */
   position: absolute;
@@ -959,8 +929,38 @@ body .more__card-wrapper:nth-child(5n+13) .more__card--face .image-container::af
   bottom: 0;
   content: "";
 }
+body .more__card-wrapper:nth-child(5n+11) .more__card--face .image-container::after {
+  background-color: rgba(43, 109, 44, 0.75);
+  /* Technique for expanding on the whole parent object */
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  content: "";
+}
+body .more__card-wrapper:nth-child(5n+12) .more__card--face .image-container::after {
+  background-color: rgba(108, 109, 43, 0.75);
+  /* Technique for expanding on the whole parent object */
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  content: "";
+}
+body .more__card-wrapper:nth-child(5n+13) .more__card--face .image-container::after {
+  background-color: rgba(43, 109, 44, 0.75);
+  /* Technique for expanding on the whole parent object */
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  content: "";
+}
 body .more__card-wrapper:nth-child(5n+14) .more__card--face .image-container::after {
-  background-color: rgba(109, 44, 43, 0.75);
+  background-color: rgba(43, 108, 109, 0.75);
   /* Technique for expanding on the whole parent object */
   position: absolute;
   top: 0;
@@ -980,7 +980,7 @@ body .more__card-wrapper:nth-child(5n+15) .more__card--face .image-container::af
   content: "";
 }
 body .more__card-wrapper:nth-child(5n+16) .more__card--face .image-container::after {
-  background-color: rgba(43, 108, 109, 0.75);
+  background-color: rgba(109, 43, 108, 0.75);
   /* Technique for expanding on the whole parent object */
   position: absolute;
   top: 0;
@@ -990,7 +990,7 @@ body .more__card-wrapper:nth-child(5n+16) .more__card--face .image-container::af
   content: "";
 }
 body .more__card-wrapper:nth-child(5n+17) .more__card--face .image-container::after {
-  background-color: rgba(109, 44, 43, 0.75);
+  background-color: rgba(109, 43, 108, 0.75);
   /* Technique for expanding on the whole parent object */
   position: absolute;
   top: 0;
@@ -1000,7 +1000,7 @@ body .more__card-wrapper:nth-child(5n+17) .more__card--face .image-container::af
   content: "";
 }
 body .more__card-wrapper:nth-child(5n+18) .more__card--face .image-container::after {
-  background-color: rgba(109, 44, 43, 0.75);
+  background-color: rgba(43, 109, 44, 0.75);
   /* Technique for expanding on the whole parent object */
   position: absolute;
   top: 0;
@@ -1010,7 +1010,7 @@ body .more__card-wrapper:nth-child(5n+18) .more__card--face .image-container::af
   content: "";
 }
 body .more__card-wrapper:nth-child(5n+19) .more__card--face .image-container::after {
-  background-color: rgba(43, 108, 109, 0.75);
+  background-color: rgba(109, 43, 108, 0.75);
   /* Technique for expanding on the whole parent object */
   position: absolute;
   top: 0;
