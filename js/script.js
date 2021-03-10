@@ -1,20 +1,88 @@
-let moreTabs = document.getElementsByClassName("more__tabs__tab");
-let moreTabsActiveClassName = "more__tabs__tab--active";
-
 /* Main execution */
 
-for (let tab of moreTabs) {
-    tab.addEventListener("click", (e) => {
-        /* Store if we added active class, because if we didn't we want our filter to reset */
-        let added = solveActiveTab(e.target)
-        let type = e.target.attributes.getNamedItem("data-type").value
-        /* Add invisible class to every card that does not have the specific type */
-        solveActiveCards(added ? type : "")
-    })
-}
+solveNavbar();
+solveTechTabs();
 
 
 /* METHODS */
+
+function solveNavbar() {
+    /* Call these here for initialization */
+    solveFixedNavbar();
+    solveActiveNavbarTabs()
+
+    document.addEventListener("scroll", (e) => {
+        /* Call these two here, because we want them updated for every scroll action */
+        solveFixedNavbar()
+        solveActiveNavbarTabs()
+    });  
+}
+
+function solveTechTabs() {
+    // This is used for filtering cards in section "More"
+    let moreTabs = document.getElementsByClassName("more__tabs__tab");
+    let moreTabsActiveClassName = "more__tabs__tab--active";
+
+    for (let tab of moreTabs) {
+        tab.addEventListener("click", (e) => {
+            /* Store if we added active class, because if we didn't we want our filter to reset */
+            let added = solveActiveTab(e.target)
+            let type = e.target.attributes.getNamedItem("data-type").value
+            /* Add invisible class to every card that does not have the specific type */
+            solveActiveCards(added ? type : "")
+        })
+    }
+}
+
+function solveFixedNavbar() {
+    let navbar = document.getElementById("hero-navbar");
+    /* Take the initial page Y offset - how many pixels are between the top of the page and the top of the screen view of the page */
+    let pageYOffset = window.pageYOffset
+
+    /* If the offset is > 500, then make the navbar fixed */
+    if (pageYOffset > 500 && !navbar.classList.contains("fixed")) {
+        navbar.classList.add("fixed")            
+    } else if (pageYOffset <= 500 && navbar.classList.contains("fixed")) {
+        navbar.classList.remove("fixed")
+    }
+}
+
+function solveActiveNavbarTabs() {
+    let anchorsAndLimits = getAnchorsAndLimits();
+    /* Take the initial page Y offset - how many pixels are between the top of the page and the top of the screen view of the page */
+    let pageYOffset = window.pageYOffset
+
+    for (let object of anchorsAndLimits) {
+        if (pageYOffset >= object.upLimit && pageYOffset < object.downLimit) {
+            object.anchor.classList.add("hero__tabs__item--active")
+        } else {
+            object.anchor.classList.remove("hero__tabs__item--active")            
+        }
+    }
+}
+
+function getAnchorsAndLimits() {
+    let objects = []
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        if (!anchor.classList.contains("hero__tabs__item"))
+            return
+
+        let bodyRect = document.body.getBoundingClientRect();
+        let section = document.querySelector(anchor.getAttribute('href')).getBoundingClientRect()
+
+        let upLimit = section.top - bodyRect.top
+        let downLimit = section.bottom - bodyRect.top
+
+        objects.push({
+            anchor: anchor,
+            upLimit: upLimit,
+            downLimit: downLimit
+        });
+    });
+
+    return objects;
+}
 
 function removeClassFromElements(elements, className) {
     for (let tab of elements) {

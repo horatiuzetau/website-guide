@@ -3,12 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <!-- Custom styling CSS -->
     <link rel="stylesheet" href="css/style.css">
-    <title>Curriculum</title>
-    <!-- Material design -->
-    <script src="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.js"></script>
-    <link href="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.css" rel="stylesheet">
+
+    <title>Cher - Build your own website</title>
 </head>
 <body>
 
@@ -16,16 +16,20 @@
     <div id="hero-section" class="hero">
 
         <!-- Main navigation (navbar) -->
-        <navbar class="hero__navbar">
+        <navbar id="hero-navbar" class="hero__navbar">
             <div class="hero__logo">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 88.94 82.01"><defs><style>.cls-1{fill:#ffffff;}</style></defs><g id="Layer_2" data-name="Layer 2"><g id="Layer_1-2" data-name="Layer 1"><path class="cls-1" d="M85.09,39.87a13.93,13.93,0,0,0-3.86-1.72L77,37l-3.81-1.06a7.85,7.85,0,0,1-2.84-1.39,2.89,2.89,0,0,1-1.09-2.35,3.41,3.41,0,0,1,1.58-2.87,7.12,7.12,0,0,1,4.2-1.12A6.47,6.47,0,0,1,79.6,29.7a5.42,5.42,0,0,1,1.77,4h7.32A12.08,12.08,0,0,0,84.93,25q-3.62-3.48-9.76-3.48T65.5,24.76a10.31,10.31,0,0,0-3.59,8A10.56,10.56,0,0,0,63,37.68a8.14,8.14,0,0,0,2.79,3.18,14,14,0,0,0,3.81,1.68l4.14,1.16,3.76,1a7.22,7.22,0,0,1,2.8,1.4,3,3,0,0,1,1.08,2.36,3.52,3.52,0,0,1-1.69,3.1A8.64,8.64,0,0,1,75,52.71a7.46,7.46,0,0,1-5.12-1.59,5.63,5.63,0,0,1-1.95-4H60.53a14.27,14.27,0,0,0,.9,4.45,12.44,12.44,0,0,0,2.38,3.89,10.77,10.77,0,0,0,4.35,2.84,18,18,0,0,0,6.4,1Q81,59.36,85,56.27a9.73,9.73,0,0,0,4-8,11.41,11.41,0,0,0-1.06-5.12A8.1,8.1,0,0,0,85.09,39.87Z"/><path class="cls-1" d="M67.16,79.58,37.43,45.74A7.44,7.44,0,0,1,37.67,36L67.16,2.44A7.4,7.4,0,0,1,72.34,0H36.91a7.38,7.38,0,0,0-5.48,2.42l0,0h0l0,0L1.93,36a7.44,7.44,0,0,0-.24,9.72L2,46,31.41,79.57h0v0A7.41,7.41,0,0,0,36.91,82H72.34a7.39,7.39,0,0,1-5.18-2.43Z"/></g></g>
                 </svg>
             </div>
-            <ul class="hero__tabs">
-                <li class="hero__tabs__item hero__tabs__item--active">Home</li>
-                <li class="hero__tabs__item">First</li>
-                <li class="hero__tabs__item">Second</li>
-            </ul>
+            <div class="hero__tabs">
+                <a href="#hero-section" class="hero__tabs__item hero__tabs__item--active">Home</a>
+                <a href="#tech-section" class="hero__tabs__item">Technologies</a>
+                <a href="#practical-section" class="hero__tabs__item">Practical</a>
+                <a href="#accessibility-section" class="hero__tabs__item">Accessibility</a>
+                <a href="#tools-section" class="hero__tabs__item">Tools</a>
+                <a href="#more-section" class="hero__tabs__item">More</a>
+                <a href="#contact-section" class="hero__tabs__item">Contact</a>
+            </div>
         </navbar>
 
         <!-- Welcome title -->
@@ -35,10 +39,10 @@
         </div>
 
         <!-- Go to the next section button -->
-        <div class="hero__button">
+        <a href="#tech-section" class="hero__button">
             <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0" y="0" width="451.847" height="451.847" viewBox="0 0 451.847 451.847" xml:space="preserve"><defs/><style>.cls-1{fill:#ffffff;}</style><g><path class="cls-1" d="M225.923 354.706c-8.098 0-16.195-3.092-22.369-9.263L9.27 151.157c-12.359-12.359-12.359-32.397 0-44.751 12.354-12.354 32.388-12.354 44.748 0l171.905 171.915 171.906-171.909c12.359-12.354 32.391-12.354 44.744 0 12.365 12.354 12.365 32.392 0 44.751L248.292 345.449c-6.177 6.172-14.274 9.257-22.369 9.257z"/></g><g/><g/><g/><g/><g/><g/><g/><g/><g/><g/><g/><g/><g/><g/><g/>
             </svg>
-        </div>
+        </a>
 
         <!-- Hero background image. This is positioned behind all the content in this section -->
         <div class="hero__background">
@@ -160,7 +164,7 @@
             <h1>Practical example</h1>
         </div>   
         <!-- Card wrapper -->
-        <div class="card">
+        <div class="practical__card">
             <!-- Top bar -->
             <div class="navbar">
                 <!-- Arrow (left) -->
@@ -202,7 +206,7 @@
                 </div>
             </div>
             <!-- Card footer - social links -->
-            <div class="footer">
+            <div class="practical__footer">
                 
             </div>
         </div> 
@@ -214,7 +218,7 @@
 
     <!-- 4. Accessibility (find(Accessibility))-->
     <div id="accessibility-section" class="accessibility section">
-        <div class="section__title">
+        <div class="section__title section__title--white">
             <h1>Accessibility</h1>
         </div>   
 
@@ -431,6 +435,68 @@
             </div>  
         </div>
     </div>
+
+    <!-- 8. Contact (find(Contact)) -->
+    <div id="contact-section" class="contact section">
+        <div class="section__title section__title--white">
+            <h1>Contact</h1>
+        </div>
+
+        <!-- Actual form (and the wrapper of the elements) -->
+        <form class="contact-form" method="POST" action="to-fill">
+            <!-- Class row, makes it possible to use class col-<size>-<fill> -->
+            <!-- Bootstrap grid divides a row into 12 -> col-6 means that the component is going to fill 6/12 of the page  -->
+            <div class="row">
+                <!-- These classes say: untill we reach <size>, expand this component <fill> boxes -->
+                <!-- For this example, When the size of the page passes 'm', it will no longer fill 6 boxes, but 12 -->
+                <!-- After reading a little bit from Bootstrap documentation, everything will be much clearer. -->
+                <div class="form-group col-md-6 col-sm-12">
+                    <label for="email">Email address</label>
+                    <input type="email" required class="form-control" aria-describedby="emailHelp" placeholder="Enter email">
+                    <small class="form-text text-muted">We'll never share your email with anyone else.</small>
+                </div>
+                <div class="form-group col-md-3 col-sm-6 col-xs-12">
+                    <label for="firstName">First name</label>
+                    <input type="text" class="form-control" aria-describedby="firstName" placeholder="First name">
+                </div>
+                <div class="form-group col-md-3 col-sm-6 col-xs-12">
+                    <label for="lastName">Last name</label>
+                    <input type="text" class="form-control" aria-describedby="lastName" placeholder="Last name">
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="form-group col-md-4 col-sm-12">
+                    <label for="catName">Cat name</label>
+                    <input type="text" class="form-control" placeholder="Cat name">
+                </div>
+                <div class="form-group col-md-4 col-sm-6 col-xs-12">
+                    <label for="dogName">Dog name</label>
+                    <input type="text" class="form-control" placeholder="Dog name">
+                </div>
+                <div class="form-group col-md-4 col-sm-6 col-xs-12">
+                    <label for="horseName">Horse name</label>
+                    <input type="text" class="form-control" placeholder="Horse name">
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="form-group col-12">
+                    <label for="exampleFormControlTextarea1">Feedback</label>
+                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                </div>
+            </div>  
+
+            <div class="form-footer-text">This form is not working at the moment. It was created to show how helpfull can be bootstrap in some cases.</div>
+
+            <button type="submit" class="btn btn-primary text-center col-md-12 col-sm-12">Send</button>                
+        
+        </form>
+    </div>
+
+    <footer id="footer-section">
+        <a href="https://softbinator.com/">@Softbinator</a>
+    </footer>
 
 
 

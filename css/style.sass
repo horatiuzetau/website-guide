@@ -54,15 +54,17 @@ $tablet: 720px
     margin: 0
     padding: 0
     box-sizing: border-box
+    line-height: initial // To ignore line-height from bootstrap
 
 a 
-    text-decoration: none
+    text-decoration: none!important
     color: initial
 
 ul
     list-style-type: none
 
-
+html
+    scroll-behavior: smooth
 body 
     margin: 0 auto
     padding: 0
@@ -94,8 +96,7 @@ body
 
     .section
         position: relative
-        margin: $sectionMargin
-        padding: 0 $hPadding
+        padding: $navbarHeight $hPadding
 
         &__title
             @include align(flex-start, center)
@@ -139,6 +140,17 @@ body
 
             &--right
                 justify-content: flex-end
+
+            &--white
+                .section__title
+                    margin: 0
+        
+                h1
+                    color: white
+                    text-shadow: none
+
+                    &::after, &::before
+                        background-color: white
     
     /* 1. Hero section (find(Build your own website)) */
     /* This was written in BEM -> Block-Element-Modifier */
@@ -152,11 +164,21 @@ body
         /* Main navigation (navbar) */
         &__navbar
             @include align(space-between, center)
+            @include basicTransition(all)
             position: absolute
             top: 0
             width: 100%
             height: $navbarHeight
             padding: 0 $hPadding
+
+            &.fixed
+                position: fixed
+                top: 0
+                left: 0
+                background-color: $primary
+                height: $navbarHeight
+                z-index: 5
+                box-shadow: 0 0 10px 3px rgba(black, .3)
 
         &__logo
             height: 100%
@@ -176,12 +198,12 @@ body
                 padding: 0px 10px
                 cursor: pointer
                 font-family: sans-serif
-                color: white
+                color: white!important
                 font-size: 1.2rem
                 opacity: $fadedTextOpacity
 
                 &--active
-                    color: $secondary
+                    color: $secondary!important
                     opacity: 1
 
                 &:hover
@@ -375,7 +397,7 @@ body
             align-self: flex-start
 
         /* Card wrapper */
-        .card
+        &__card
             width: 90%
             max-width: 960px
             height: 500px
@@ -490,7 +512,7 @@ body
                     span
                         font-family: sans-serif
                         letter-spacing: 3px
-                        font-size: 3.3em
+                        font-size: 3.3rem
                         color: white
                     .thin
                         word-break: word-break
@@ -599,15 +621,6 @@ body
             top: -200px
             background: linear-gradient(0deg, rgba(45,43,109,1) 0%, rgba(255,255,255,0) 100%)
 
-        .section__title
-            margin: 0
-        
-            h1
-                color: white
-                text-shadow: none
-                &::after, &::before
-                    background-color: white
-
         &__card__wrapper
             @include align(center, center)
             flex-wrap: wrap
@@ -622,7 +635,6 @@ body
             font-weight: 600
             border: 5px solid $primary
             background-color: darken(white, 10)
-
 
     /* 5. Other tools (find(Other tools)) */
     .tools
@@ -808,6 +820,66 @@ body
 
                     &:hover
                         background-color: $secondary
+
+    /* 7. Contact (find(Contact)) */
+    .contact
+        background-color: $primary
+        margin-bottom: 0
+
+        .contact-form
+            padding: 50px $hPadding
+
+            label
+                color: darken(white, 15)
+
+            input, textarea
+                background-color: darken(white, 15)
+
+            .form-footer-text
+                color: darken(white, 30)
+                margin: 30px 0 10px
+                font-size: 1rem
+                font-style: oblique
+
+            .btn
+                @include basicTransition(opacity)
+                border: none
+                background-color: $secondary
+                color: white
+                font-weight: 600
+
+                &:hover
+                    opacity: .9
+
+                &:focus
+                    outline: none!important
+                &:active
+                    background-color: $secondary!important
+
+    /* Footer section */
+    #footer-section
+        @include center
+        width: 100%
+        height: 150px
+        background-color: $primary
+        position: relative
+
+        &::before
+            content: ''
+            position: absolute
+            width: 80%
+            height: 1px 
+            background-color: white
+            opacity: .2
+            top: 0
+
+        a
+            color: white
+
+            &:hover
+                text-decoration: underline!important
+
+
 
 @media screen and (max-width: $tablet)
     /* Practical example */
