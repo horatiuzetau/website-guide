@@ -1,3 +1,8 @@
+/* Global variables */
+// This is used for filtering cards in section "More"
+let moreTabs = document.getElementsByClassName("more__tabs__tab");
+let moreTabsActiveClassName = "more__tabs__tab--active";
+
 /* Main execution */
 
 solveNavbar();
@@ -19,9 +24,6 @@ function solveNavbar() {
 }
 
 function solveTechTabs() {
-    // This is used for filtering cards in section "More"
-    let moreTabs = document.getElementsByClassName("more__tabs__tab");
-    let moreTabsActiveClassName = "more__tabs__tab--active";
 
     for (let tab of moreTabs) {
         tab.addEventListener("click", (e) => {

@@ -137,6 +137,7 @@ body .hero {
   width: 100%;
   height: 100vh;
   max-height: 1280px;
+  min-height: 700px;
   /* Main navigation (navbar) */
   /* Welcome title */
   /* Go to the next section button */
@@ -458,7 +459,7 @@ body .practical__card .navbar {
   align-items: center;
   flex-flow: row;
   height: 50px;
-  padding: 0 1.5rem;
+  padding: 0 15px;
   /* Languages (center) */
   /* Common properties for right & left buttons */
   /* Arrow (left) */
@@ -507,8 +508,8 @@ body .practical__card .navbar .languages div:focus span {
   color: #2d2b6d;
 }
 body .practical__card .navbar .close, body .practical__card .navbar .arrow {
-  width: 1.5rem;
-  height: 1.5rem;
+  width: 25px;
+  height: 25px;
   cursor: pointer;
   position: relative;
 }
@@ -577,7 +578,7 @@ body .practical__card .content {
   justify-content: center;
   align-items: flex-start;
   flex-flow: row;
-  padding: 20px 3rem 0px;
+  padding: 20px 40px 0px;
   height: 75%;
   /* Card text */
   /* Card image */
@@ -751,7 +752,7 @@ body .tools__wrapper__card {
   transition: box-shadow 0.25s ease-in-out;
   width: 24.5%;
   align-self: stretch;
-  padding: 1.5rem;
+  padding: 40px;
   margin-bottom: 30px;
   box-shadow: 0 0 0 1px rgba(45, 43, 109, 0.2) inset;
   /* Left side of the card -> title + logo */
@@ -759,6 +760,7 @@ body .tools__wrapper__card {
   /* Description */
 }
 body .tools__wrapper__card:hover {
+  color: initial;
   box-shadow: 0 0 0 3px #2d2b6d inset, 0 0 0 5px white inset, 0 0 0 12px #2d2b6d inset;
 }
 body .tools__wrapper__card .left {
@@ -766,6 +768,7 @@ body .tools__wrapper__card .left {
   justify-content: center;
   align-items: center;
   flex-flow: column;
+  width: 30%;
   /* This can be usefull if we want to add background color to it. Also, it assures that the images stay on some delimited size */
 }
 body .tools__wrapper__card .left .image-wrapper {
@@ -785,6 +788,7 @@ body .tools__wrapper__card .left .image-wrapper img {
 body .tools__wrapper__card .left h3 {
   font-size: 1.2rem;
   text-align: center;
+  font-weight: 700;
   font-family: sans-serif;
 }
 body .tools__wrapper__card .vertical-line {
@@ -846,7 +850,7 @@ body .more__card-wrapper {
   overflow: hidden;
 }
 body .more__card-wrapper:nth-child(5n+1) .more__card--face .image-container::after {
-  background-color: rgba(108, 109, 43, 0.75);
+  background-color: rgba(43, 108, 109, 0.75);
   /* Technique for expanding on the whole parent object */
   position: absolute;
   top: 0;
@@ -856,7 +860,7 @@ body .more__card-wrapper:nth-child(5n+1) .more__card--face .image-container::aft
   content: "";
 }
 body .more__card-wrapper:nth-child(5n+2) .more__card--face .image-container::after {
-  background-color: rgba(108, 109, 43, 0.75);
+  background-color: rgba(43, 109, 44, 0.75);
   /* Technique for expanding on the whole parent object */
   position: absolute;
   top: 0;
@@ -866,7 +870,7 @@ body .more__card-wrapper:nth-child(5n+2) .more__card--face .image-container::aft
   content: "";
 }
 body .more__card-wrapper:nth-child(5n+3) .more__card--face .image-container::after {
-  background-color: rgba(109, 44, 43, 0.75);
+  background-color: rgba(43, 109, 44, 0.75);
   /* Technique for expanding on the whole parent object */
   position: absolute;
   top: 0;
@@ -876,7 +880,7 @@ body .more__card-wrapper:nth-child(5n+3) .more__card--face .image-container::aft
   content: "";
 }
 body .more__card-wrapper:nth-child(5n+4) .more__card--face .image-container::after {
-  background-color: rgba(43, 109, 44, 0.75);
+  background-color: rgba(109, 43, 108, 0.75);
   /* Technique for expanding on the whole parent object */
   position: absolute;
   top: 0;
@@ -896,7 +900,7 @@ body .more__card-wrapper:nth-child(5n+5) .more__card--face .image-container::aft
   content: "";
 }
 body .more__card-wrapper:nth-child(5n+6) .more__card--face .image-container::after {
-  background-color: rgba(108, 109, 43, 0.75);
+  background-color: rgba(43, 109, 44, 0.75);
   /* Technique for expanding on the whole parent object */
   position: absolute;
   top: 0;
@@ -906,7 +910,7 @@ body .more__card-wrapper:nth-child(5n+6) .more__card--face .image-container::aft
   content: "";
 }
 body .more__card-wrapper:nth-child(5n+7) .more__card--face .image-container::after {
-  background-color: rgba(108, 109, 43, 0.75);
+  background-color: rgba(109, 43, 108, 0.75);
   /* Technique for expanding on the whole parent object */
   position: absolute;
   top: 0;
@@ -916,7 +920,7 @@ body .more__card-wrapper:nth-child(5n+7) .more__card--face .image-container::aft
   content: "";
 }
 body .more__card-wrapper:nth-child(5n+8) .more__card--face .image-container::after {
-  background-color: rgba(108, 109, 43, 0.75);
+  background-color: rgba(43, 109, 44, 0.75);
   /* Technique for expanding on the whole parent object */
   position: absolute;
   top: 0;
@@ -926,7 +930,7 @@ body .more__card-wrapper:nth-child(5n+8) .more__card--face .image-container::aft
   content: "";
 }
 body .more__card-wrapper:nth-child(5n+9) .more__card--face .image-container::after {
-  background-color: rgba(109, 43, 108, 0.75);
+  background-color: rgba(43, 109, 44, 0.75);
   /* Technique for expanding on the whole parent object */
   position: absolute;
   top: 0;
@@ -946,7 +950,7 @@ body .more__card-wrapper:nth-child(5n+10) .more__card--face .image-container::af
   content: "";
 }
 body .more__card-wrapper:nth-child(5n+11) .more__card--face .image-container::after {
-  background-color: rgba(108, 109, 43, 0.75);
+  background-color: rgba(43, 108, 109, 0.75);
   /* Technique for expanding on the whole parent object */
   position: absolute;
   top: 0;
@@ -966,7 +970,7 @@ body .more__card-wrapper:nth-child(5n+12) .more__card--face .image-container::af
   content: "";
 }
 body .more__card-wrapper:nth-child(5n+13) .more__card--face .image-container::after {
-  background-color: rgba(43, 109, 44, 0.75);
+  background-color: rgba(108, 109, 43, 0.75);
   /* Technique for expanding on the whole parent object */
   position: absolute;
   top: 0;
@@ -976,7 +980,7 @@ body .more__card-wrapper:nth-child(5n+13) .more__card--face .image-container::af
   content: "";
 }
 body .more__card-wrapper:nth-child(5n+14) .more__card--face .image-container::after {
-  background-color: rgba(43, 109, 44, 0.75);
+  background-color: rgba(109, 43, 108, 0.75);
   /* Technique for expanding on the whole parent object */
   position: absolute;
   top: 0;
@@ -996,7 +1000,7 @@ body .more__card-wrapper:nth-child(5n+15) .more__card--face .image-container::af
   content: "";
 }
 body .more__card-wrapper:nth-child(5n+16) .more__card--face .image-container::after {
-  background-color: rgba(43, 108, 109, 0.75);
+  background-color: rgba(109, 44, 43, 0.75);
   /* Technique for expanding on the whole parent object */
   position: absolute;
   top: 0;
@@ -1006,7 +1010,7 @@ body .more__card-wrapper:nth-child(5n+16) .more__card--face .image-container::af
   content: "";
 }
 body .more__card-wrapper:nth-child(5n+17) .more__card--face .image-container::after {
-  background-color: rgba(109, 43, 108, 0.75);
+  background-color: rgba(43, 109, 44, 0.75);
   /* Technique for expanding on the whole parent object */
   position: absolute;
   top: 0;
@@ -1016,7 +1020,7 @@ body .more__card-wrapper:nth-child(5n+17) .more__card--face .image-container::af
   content: "";
 }
 body .more__card-wrapper:nth-child(5n+18) .more__card--face .image-container::after {
-  background-color: rgba(43, 108, 109, 0.75);
+  background-color: rgba(109, 44, 43, 0.75);
   /* Technique for expanding on the whole parent object */
   position: absolute;
   top: 0;
@@ -1026,7 +1030,7 @@ body .more__card-wrapper:nth-child(5n+18) .more__card--face .image-container::af
   content: "";
 }
 body .more__card-wrapper:nth-child(5n+19) .more__card--face .image-container::after {
-  background-color: rgba(43, 109, 44, 0.75);
+  background-color: rgba(108, 109, 43, 0.75);
   /* Technique for expanding on the whole parent object */
   position: absolute;
   top: 0;
@@ -1036,7 +1040,7 @@ body .more__card-wrapper:nth-child(5n+19) .more__card--face .image-container::af
   content: "";
 }
 body .more__card-wrapper:nth-child(5n+20) .more__card--face .image-container::after {
-  background-color: rgba(43, 109, 44, 0.75);
+  background-color: rgba(108, 109, 43, 0.75);
   /* Technique for expanding on the whole parent object */
   position: absolute;
   top: 0;
@@ -1147,12 +1151,15 @@ body .contact .contact-form {
 body .contact .contact-form label {
   color: #d9d9d9;
 }
-body .contact .contact-form input, body .contact .contact-form textarea {
+body .contact .contact-form input, body .contact .contact-form textarea, body .contact .contact-form select {
   background-color: #d9d9d9;
+}
+body .contact .contact-form input[disabled=true], body .contact .contact-form textarea[disabled=true], body .contact .contact-form select[disabled=true] {
+  background-color: #b3b3b3;
 }
 body .contact .contact-form .form-footer-text {
   color: #b3b3b3;
-  margin: 30px 0 10px;
+  margin: 0px 0 30px;
   font-size: 1rem;
   font-style: oblique;
 }
