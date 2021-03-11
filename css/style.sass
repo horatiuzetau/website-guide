@@ -1,46 +1,50 @@
 /** VARIABLES **/
 
-$primary: #2d2b6d
-$secondary: #c92e6d
+$primary    : #2d2b6d
+$secondary  : #c92e6d
 
-$techTabs: [html, css, js, xd]
-$moreTabs: [youtube, battle, challenges, courses, websites]
-$moreColors: #2b6d2c, #6d2b6c, #6c6d2b, #6d2c2b, #2b6c6d
+$techTabs    : [html, css, js, xd]
+$moreTabs    : [youtube, battle, challenges, courses, websites]
+$moreColors  : #2b6d2c, #6d2b6c, #6c6d2b, #6d2c2b, #2b6c6d
 
-$navbarHeight: 60px
+$navbarHeight  : 60px
+$hPadding      : 1.5rem
 
-$sectionMargin: 50px 0px
-$sectionTitlePaddingVertical: 20px
+/* Font weight */
+$light     : 300
+$semiBold  : 600
+$bold      : 700
 
-$hPadding: 1.5rem
+$heroOverlayOpacity      : .75
+$parallaxOverlayOpacity  : .85
+$maxWidthBody            : 1920px
 
-// spatii navbar sus = lateral  -> mai mult
-// scos linie de la Technologies
-// practical opacitate background
-// san-serif
-// navbar underline roz si cuvintele tot albe
-// umbra la hover tools
-// orizontala flipping la more
-// rubik font
-// icon softbinator for website
-// vezi ce e em / rem
+/* Query values */
+$smallPhone   : 320px
+$largePhone   : 480px 
+$smallTablet  : 580px
+$tablet       : 780px
+$laptop       : 1024px
+$largeLaptop  : 1420px
 
-$tablet: 720px
 
-// inlocuieste peste tot la square cu squaeer
 /** MIXINS */
-
+/* Align with display flex */
 @mixin align($hAlign, $vAlign, $flow: row)
     display: flex
     justify-content: $hAlign
     align-items: $vAlign
     flex-flow: $flow
 
+/* Center with display - row / column */
 @mixin center($flow: row)
     @include align(center, center, $flow)
 
-@mixin overlay($opacity, $color: black)
+/* Create overlay of certain opacity and color */
+@mixin overlay($opacity, $color: black, $content: true)
     background-color: rgba($color, $opacity)
+    @if ($content)
+        content: ''
     /* Technique for expanding on the whole parent object */
     position: absolute
     top: 0
@@ -48,9 +52,11 @@ $tablet: 720px
     right: 0
     bottom: 0
 
+/* Same transition everywhere - easy to change default values to preview the entire feel */
 @mixin basicTransition($property, $time: .25s, $type: ease-in-out)
     transition: $property $time $type
 
+/* When width = height, so we can write only one line of code */
 @mixin square($l) 
     width: $l
     height: $l
@@ -60,44 +66,44 @@ $tablet: 720px
     padding: 0
     box-sizing: border-box
     line-height: initial // To ignore line-height from bootstrap
+    font-family: 'Rubik', sans-serif // All text should have this font
 
 a 
     text-decoration: none!important
     color: initial
 
 ul
-    list-style-type: none
+    list-style-type: none // no bullets for lists
 
 html
-    scroll-behavior: smooth
+    scroll-behavior: smooth // This is for the navbar scrolling
+
 body 
     margin: 0 auto
     padding: 0
-    max-width: 1920px
+    max-width: $maxWidthBody
 
+    /* This section is for design. An image remains steady as you scroll */
     .parallax
         @include center
+        position: relative
         width: 100%
         height: 350px
-        background-attachment: fixed
-        background-position: center
-        background-repeat: no-repeat
-        background-size: cover
-        position: relative
+        background:
+            attachment: fixed
+            position: center
+            repeat: no-repeat
+            size: cover
 
         span
             color: white
-            font-family: sans-serif
             letter-spacing: 10px
-            z-index: 1
             font-size: 2rem
-            font-weight: 700
-            text-shadow: 3px 3px 10px rgba(black, .5)
+            z-index: 1 // Putting it on top of the overlay
 
         &--overlay
             &::after
-                content: ''
-                @include overlay(.85, $primary)
+                @include overlay($parallaxOverlayOpacity, $primary)
 
     .section
         position: relative
@@ -105,15 +111,15 @@ body
 
         &__title
             @include align(flex-start, center)
-            margin-bottom: 20px
             position: relative
             right: 0
+            margin-bottom: 20px
             letter-spacing: 3px
 
             h1
                 @include basicTransition(text-shadow)
                 @include center
-                padding: $sectionTitlePaddingVertical $sectionTitlePaddingVertical $sectionTitlePaddingVertical $sectionTitlePaddingVertical / 2
+                padding: $hPadding $hPadding $hPadding $hPadding / 2
                 color: $primary
                 font-weight: 600
                 width: max-content
@@ -129,10 +135,9 @@ body
                     background-color: $primary
 
                 &::before
-                    @include basicTransition(all, .5s, cubic-bezier(0.57, 0.35, 0.49, 1.21))
+                    @include basicTransition(left, .5s, cubic-bezier(0.17, 0.5, 0.19, 1.21))
+                    @include square(10px)
                     left: 50%
-                    width: 10px
-                    height: 10px
                     border-radius: 50%
                     opacity: 0
 
@@ -142,10 +147,11 @@ body
                     right: 0
                     bottom: 0
 
-
+            /* The title is aligned to the right */
             &--right
                 justify-content: flex-end
 
+            /* The title is white */
             &--white
                 .section__title
                     margin: 0
@@ -164,12 +170,11 @@ body
         position: relative
         width: 100%
         height: 100vh
-        max-height: 1280px
-        min-height: 700px
+        max-height: 1280px // If the window is zoomed out, because of 'vw', the height will always fit the screen. We don't want that 
+        min-height: 700px // If the window is zoomed in, we don't want to squize all hero content in a very space
 
-        /* Main navigation (navbar) */
-        &__navbar
-            @include align(space-between, center)
+        .hero-navbar-container
+            @include center
             @include basicTransition(all)
             position: absolute
             top: 0
@@ -181,40 +186,66 @@ body
                 position: fixed
                 top: 0
                 left: 0
+                height: $navbarHeight * 1.1
+                z-index: 5 // This will set it on top of everything
                 background-color: $primary
+                box-shadow: 0 0 10px 3px rgba(black, .3) // Added a little bit more depth, to clearly tell the difference between the content and the navbar
+           
+            /* Main navigation (navbar) */
+            .hero-navbar
+                @include align(space-between, center)
+                @include basicTransition(all)
+                width: 100%
                 height: $navbarHeight
-                z-index: 5
-                box-shadow: 0 0 10px 3px rgba(black, .3)
+                max-width: $maxWidthBody
+                padding: 0 $hPadding
 
+                &__logo
+                    height: 100%
+                    padding: 15px 0
 
-        &__logo
-            height: 100%
-            padding: 15px 0
+                    svg
+                        height: 100%
 
-            svg
-                height: 100%
+                &__container
+                    @include center
+                    height: 100%
 
-        &__tabs
-            @include align(center, center)            
-            height: 100%
+                    .navbar-item
+                        @include center
+                        @include basicTransition(all)
+                        position: relative
+                        cursor: pointer
+                        height: 70%
+                        padding: 0px 10px
+                        color: white
+                        font-size: 1.2rem
+                        opacity: .7
+                        margin: 0 .25rem
+                        overflow: hidden
 
-            &__item
-                @include center
-                @include basicTransition(opacity)
-                height: 100%
-                padding: 0px 10px
-                cursor: pointer
-                font-family: sans-serif
-                color: white!important
-                font-size: 1.2rem
-                opacity: .7
+                        &::after
+                            @include basicTransition(all)
+                            content: ''
+                            position: absolute
+                            left: 0
+                            bottom: 0
+                            width: 0px
+                            height: 2px
+                            background-color: $secondary
 
-                &--active
-                    color: $secondary!important
-                    opacity: 1
+                        &--active
+                            opacity: 1
+                            &::after
+                                left: 50%
+                                width: 100%
 
-                &:hover
-                    opacity: 1
+                        &:hover
+                            &::after
+                                opacity: 1
+                                left: 30%
+                                width: 100%
+
 
         /* Welcome title */
         &__title
@@ -224,47 +255,49 @@ body
             h1
                 font-size: 4rem
 
+            /* Obtained contrast from opacity property */
             span
-                font-size: 2rem
-                font-style: oblique
                 opacity: .45
+                font:
+                    size: 1.75rem
+                    style: oblique
+                    family: sans-serif
+                    weight: $light
 
         /* Go to the next section button */
         &__button
             @include basicTransition(padding)
             position: absolute
             bottom: $hPadding
-            color: white
             cursor: pointer
-
-            svg
-                width: 30px
-                height: 30px
 
             &:hover
                 padding-bottom: 10px
 
+            svg
+                @include square(30px)
+
+
         /* Hero background image */
         &__background
-            width: 100%
-            height: 100%
+            @include square(100%)
             position: absolute
             z-index: -1
 
-            img
-                width: 100%
-                height: 100%
-                object-fit: cover
-                object-position: center
-
             &::after
-                @include overlay(.75, darken($primary, 25))
+                @include overlay($heroOverlayOpacity, darken($primary, 25))
                 content: ''
-    
+
+            img
+                @include square(100%)
+                object:
+                    fit: cover
+                    position: center
+
     /* 2. Required Technologies (find(Required Technologies)) */
     .tech
         /* Used technologies list (clickable tabs) */
-        &__tabs
+        .tech-tabs
             @include align(flex-end, center)
             width: 100%
             flex-wrap: wrap
@@ -273,18 +306,18 @@ body
 
             &__tab
                 @include basicTransition(all)
-                outline: none
                 cursor: pointer
+                outline: none // comes from tabIndex="0"
                 padding: 15px 30px
                 color: $primary
-                font-weight: 700
+                font-weight: $bold
 
                 &--active // The dafult active one gets active background
                     color: white
                     background-color: $secondary
                     
                 &:focus
-                    ~.tech__tabs__tab--active // When one of the tabs is focused, the default active tab gets normal background
+                    ~.tech-tabs__tab--active // When one of the tabs is focused, the default active tab gets normal background. Search https://www.w3schools.com/cssref/css_selectors.asp
                         background-color: white
                         color: $primary
 
@@ -293,7 +326,7 @@ body
                     &:focus
                         color: white
                         background-color: $secondary // Color the tab to show its activeness
-                        &~.tech__tabs__content
+                        &~.tech-tabs__content
                             .box--active // Hide the default active box
                                 display: none
                             .box[data-tech=#{$tab}] // Show the related box
@@ -301,12 +334,12 @@ body
             
             /* Used technology content - clicked tabs will show related box */
             &__content
-                flex-basis: 100%
+                flex-basis: 100% // Giving the content width 100% from one row - that sends it to the next row
                 .box
                     @include center
                     width: 100%
                     height: 500px
-                    display: none
+                    display: none // Hide all by default
 
                     /* Display the active default one */
                     &--active
@@ -327,27 +360,28 @@ body
                             padding: 20px 0
                             position: relative
 
-                            &:after
+                            &::after, &::before
                                 content: ''
                                 position: absolute
-                                width: 70%
+                                width: 10%
                                 height: 1px
                                 bottom: 0px
-                                left: 0px
                                 background-color: rgba($primary, .35)
+                            
+                            &::after
+                                right: 0
+                            
+                            &::before
+                                left: 0px
 
                             span
-                                font-size: 1.8rem
-                                font-weight: 700
-                                font-family: sans-serif
+                                font:
+                                    size: 1.8rem
+                                    weight: $bold
                                 color: $primary
 
                             img
-                                right: $hPadding
-                                top: $hPadding
-                                width: 75px
-                                height: 75px
-                                align-self: flex-end
+                                @include square(75px)
 
                         /* Information of the text content */
                         ul 
@@ -363,11 +397,11 @@ body
 
                     /* Image of the box */
                     &__image
-                        @include align(flex-end, center)
                         height: 100%
                         width: 50%
                         overflow: hidden
                         padding: $hPadding 
+
                         img
                             width: 100%
                             height: 100%
@@ -378,11 +412,9 @@ body
     .practical
         @include center(column)
         overflow: hidden
-        padding-top: 100px
         padding-bottom: 100px
         margin-bottom: 0
         position: relative
-        box-shadow: 0 0 10px 1px rgba(black, .05)
 
         /* Background image pattern for practical section */
         &:after 
@@ -393,7 +425,7 @@ body
             left: 0
             top: 0
             z-index: -1
-            opacity: .15
+            opacity: .1
             background:
                 image: url(/css/img/practical-section/pattern.jpg)
                 position: center
@@ -611,37 +643,34 @@ body
 
     /* 4. Accessibility (find(Accessibility)) */
     .accessibility
-        background-color: $primary
-        margin-top: 0
-        height: 700px
         position: relative
+        height: 700px
+        margin-top: 0
+        background-color: $primary
 
         &::before
             content: ''
             position: absolute
-            height: 200px
-            left: 0
-            right: 0
-            background: rgb(45,43,109)
-
-        &::before
             top: -200px
+            right: 0
+            left: 0
+            height: 200px
+            background: rgb(45,43,109)
             background: linear-gradient(0deg, rgba(45,43,109,1) 0%, rgba(255,255,255,0) 100%)
 
-        &__card__wrapper
+        .card-container
             @include align(center, center)
             flex-wrap: wrap
             width: 100%
             margin-top: 50px
 
-        &__card
-            @include align(flex-start, center)
-            flex-basis: 25%
-            padding: 20px
-            // color: white
-            font-weight: 600
-            border: 5px solid $primary
-            background-color: darken(white, 10)
+            &__card
+                @include align(flex-start, center)
+                flex-basis: 25%
+                padding: 20px
+                font-weight: $semiBold
+                border: 5px solid $primary
+                background-color: darken(white, 10)
 
     /* 5. Other tools (find(Other tools)) */
     .tools
@@ -651,18 +680,21 @@ body
             width: 100%
             flex-wrap: wrap
             /* Card */
-            &__card
-                @include align(center, center)
-                @include basicTransition(box-shadow)
+            .tools-card
+                @include center
+                @include basicTransition(all)
+                align-self: stretch // All items will have same height
                 width: 24.5%
-                align-self: stretch
-                padding: 40px
                 margin-bottom: 30px
+                padding: 40px
                 box-shadow: 0 0 0 1px rgba($primary, .2) inset
 
                 &:hover
                     color: initial
-                    box-shadow: 0 0 0 3px $primary inset, 0 0 0 5px white inset, 0 0 0 12px $primary inset
+                    box-shadow: 0 0 0 3px $primary inset, 
+                    // 0 0 0 5px white inset,  // Effect of double line
+                    // 0 0 0 12px $primary inset, 
+                    0 0 10px 3px rgba(black, .15)
 
                 /* Left side of the card -> title + logo */
                 .left
@@ -672,8 +704,7 @@ body
                     /* This can be usefull if we want to add background color to it. Also, it assures that the images stay on some delimited size */
                     .image-wrapper
                         @include center
-                        width: 70px
-                        height: 70px
+                        @include square(70px)
                         background-color: #ffffff
                         border-radius: 50%
                         padding: 8px
@@ -682,10 +713,10 @@ body
                             height: 90%
 
                     h3
-                        font-size: 1.2rem
                         text-align: center
-                        font-weight: 700
-                        font-family: sans-serif
+                        font:
+                            size: 1rem
+                            weight: $bold
 
                 /* Delimit the title from the description */
                 .vertical-line
@@ -703,7 +734,7 @@ body
     .more
         width: 100%
 
-        &__tabs
+        .more-tabs
             @include align(flex-end, center)
             flex-wrap: wrap
             flex-direction: row-reverse // reverse them, because ~ only points to the preceding items; it would be impossible to set the normal bg color for default active tab when other tab is pressed
@@ -711,10 +742,10 @@ body
             &__tab
                 @include basicTransition(all)
                 cursor: pointer
-                padding: 10px 20px
-                font-family: sans-serif
-                font-weight: 700
                 outline: none
+                padding: 10px 20px
+                font-weight: $bold
+                letter-spacing: 0px
 
                 &:hover
                     opacity: .7
@@ -728,108 +759,109 @@ body
             justify-content: space-between
 
         /* Wrapper for cards, so we can flex them as a gallery */
-        .cards-wrapper
+        .more-cards
             @include align(flex-start, center)
             flex-wrap: wrap
             width: 100%
 
-        /* We use a wrapper around the card, so that the hover effect does not depend on the card position */
-        &__card-wrapper
-            perspective: 4500
-            perspective-origin: center
-            flex-basis: 25%
-            transition: transform .4s ease-out, flex .0s linear, opacity .5s ease-in-out
-            overflow: hidden
+            /* We use a wrapper around the card, so that the hover effect does not depend on the card position */
+            &__card-wrapper
+                perspective: 4500
+                    origin: center
+                flex-basis: 25%
+                transition: transform .4s ease-out, flex .0s linear, opacity .5s ease-in-out
+                overflow: hidden
 
-            @for $i from 1 through 20
-                &:nth-child(#{length($moreColors)}n+#{$i})
-                    .more__card--face .image-container::after
-                        @include overlay(.75, nth($moreColors, random(length($moreColors))))
-                        content: ''
+                @for $i from 1 through 20
+                    &:nth-child(#{length($moreColors)}n+#{$i})
+                        .more-cards__card--face .image-container::after
+                            @include overlay(.75, nth($moreColors, random(length($moreColors))))
+                            content: ''
 
-            &:hover
-                .more__card
-                    transform: rotateY(180deg)
+                &:hover
+                    .more-cards__card
+                        transform: rotateX(180deg)
 
-            &.invisible
-                flex-basis: 0px
-                opacity: 0
-                // transition: transform .4s ease-out, flex .0s linear .05s,
-                // opacity .5s ease-in-out
-                transform: scale(0)
-        /* Card */
-        &__card
-            @include basicTransition(transform, .75s, ease-out)
-            height: 256px
-            position: relative
-            // transform: rotateY(180deg)
-            // box-shadow: 0 0 10px 3px rgba(black, .15)
-            transform-style: preserve-3d
-            border: 5px solid white                
+                &.invisible
+                    flex-basis: 0px
+                    opacity: 0
+                    // transition: transform .4s ease-out, flex .0s linear .05s,
+                    // opacity .5s ease-in-out
+                    transform: scale(0)
+            
+            /* Card */
+            &__card
+                @include basicTransition(transform, .75s, ease-out)
+                height: 256px
+                position: relative
+                // transform: rotateY(180deg)
+                // box-shadow: 0 0 10px 3px rgba(black, .15)
+                transform-style: preserve-3d
+                border: 5px solid white                
 
-            &--face, &--back
-                width: 100%
-                height: 100%
+                &--face, &--back
+                    @include square(100%)
 
-            /* Card face */
-            &--face
-                @include center
-                backface-visibility: hidden
-                pointer-events: none
+                /* Card face */
+                &--face
+                    @include center
+                    backface-visibility: hidden // So when the card is rotated, we won't see its mirrored reflection. 
+                    pointer-events: none // If we click the back face, we are also selecting elements from the face of the card. This is deactivating click events on front card
 
-                /* Background image */
-                .image-container
-                    position: absolute
-                    width: 100%
-                    height: 100%
-                    object-fit: cover
-                    
-                    img
-                        height: 100%
+                    /* Background image */
+                    .image-container
+                        position: absolute
                         width: 100%
-                        object-position: center
+                        height: 100%
                         object-fit: cover
+                        
+                        img
+                            height: 100%
+                            width: 100%
+                            object-position: center
+                            object-fit: cover
 
-                /* Title */
-                h1
-                    color: white
-                    z-index: 1
-                    font-size: 2.5rem
-                    letter-spacing: 5px
+                    /* Title */
+                    h1
+                        color: white
+                        z-index: 1
+                        font-size: 2.5rem
+                        letter-spacing: 5px
 
-            /* Card back */
-            &--back
-                @include center(column)
-                position: absolute
-                top: 0
-                left: 0
-                transform: rotateY(180deg)
-                z-index: -1
-                background-image: url('/css/img/more-section/card-bg.jpg')
-
-                &::after
-                    content: ''
-                    @include overlay(.75, $primary)
+                /* Card back */
+                &--back
+                    @include center(column)
+                    position: absolute
+                    top: 0
+                    left: 0
+                    transform: rotateX(180deg)
                     z-index: -1
+                    background-image: url('/css/img/more-section/card-bg.jpg')
 
-                /* Description */
-                p
-                    padding: 0 10px     
-                    text-align: center
-                    color: white
-                    font-size: 1.1em
+                    &::after
+                        @include overlay(.75, $primary)
+                        content: ''
+                        z-index: -1
 
-                /* Button */
-                a
-                    @include basicTransition(background-color)
-                    padding: 10px 20px
-                    color: white
-                    border: 1px solid white
-                    border-radius: 5px
-                    margin: 10px 0
+                    /* Description */
+                    p
+                        padding: 0 10px     
+                        text-align: center
+                        color: white
+                        font-size: 0.9rem
 
-                    &:hover
-                        background-color: $secondary
+                    /* Button */
+                    a
+                        @include basicTransition(all)
+                        padding: 10px 20px
+                        color: white
+                        border: 1px solid white
+                        border-radius: 5px
+                        margin: 10px 0
+
+                        &:hover
+                            border-color: $secondary
+                            background-color: $secondary
 
     /* 7. Contact (find(Contact)) */
     .contact
@@ -866,6 +898,7 @@ body
 
                 &:focus
                     outline: none!important
+
                 &:active
                     background-color: $secondary!important
 
@@ -873,18 +906,18 @@ body
     #footer-section
         @include center
         width: 100%
-        height: 150px
+        height: 50px
         background-color: $primary
         position: relative
 
         &::before
             content: ''
             position: absolute
-            width: 80%
+            top: 0
+            width: 95%
             height: 1px 
             background-color: white
             opacity: .2
-            top: 0
 
         a
             color: white
@@ -892,26 +925,250 @@ body
             &:hover
                 text-decoration: underline!important
 
+@media screen and (max-width: $largeLaptop)
+    body
+        /* Tools section */
+        .tools
+            /* Gallery wrapper */
+            &__wrapper
+                /* Card */
+                .tools-card
+                    padding: 20px 10px
+                    margin: 10px 0
+                    flex-basis: 33%
+                    .left .image-wrapper img
+                                height: 70%
 
+        /* More section */
+        .more
+            .more-cards
+                &__card-wrapper
+                    flex-basis: 33%
+
+@media screen and (max-width: $laptop)
+    body 
+        /* Parallax */
+        .parallax 
+            span
+                text-align: center
+                letter-spacing: 5px
+                font-size: 1.5rem
+        .section
+            padding: 60px $hPadding / 2
+            .section__title h1
+                font-size: 2rem
+
+        /* Hero section */
+        .hero
+            max-height: 400px
+
+            .hero__title 
+                h1
+                    font-size: 2rem
+                span
+                    font-size: 1rem
+            .hero-navbar-container
+                padding: 0
+
+        /* Tech section */
+        .tech .tech-tabs__content
+            .box
+                height: auto
+                flex-flow: column
+
+                &__text
+                    width: 100%
+                
+                &__image
+                    @include center
+                    order: -1
+                    width: 100%
+                    background-color: rgba($primary, .02)
+                    padding: $hPadding 0
+                    margin-top: 10px
+
+                    img
+                        width: 90%
+
+        /* Tools section */
+        .tools
+            /* Gallery wrapper */
+            &__wrapper
+                /* Card */
+                .tools-card
+                    padding: 20px 10px
+                    margin: 10px 0
+                    flex-basis: 49.5%
+                    .left
+                        width: 30%
+
+                    .text
+                        font-size: .85rem
+
+        .more
+            .more-tabs
+                &__tab
+                    padding: 5px 10px
+                    font-size: .9rem
+
+            .more-cards
+                &__card-wrapper
+                    flex-basis: 50%
+                &__card
+                    border: 2.5px solid white
+                    &--back 
+                        p
+                            font-size: .9rem
+                        a
+                            margin: 0
+                            padding: 5px 10px
+
+                    &--face
+                        h1
+                            font-size: 2rem
 
 @media screen and (max-width: $tablet)
-    /* Practical example */
-    .card 
-        height: auto!important
-        padding-bottom: 40px
-        .content
-            padding: 25px!important
-            height: auto!important
-            flex-flow: column!important
-            .left, .right
-                width: 100%!important        
-            .left
-                padding-top: 40px
-                order: 2
-            .right
-                order: 1
-                .image-container
-                    position: relative!important
-                    height: 350px!important
-                    transform: translateX(0px)!important
+    body 
+        /* Parallax */
+        .parallax
+            height: 250px
 
+        /* Tech section */
+        .tech .tech-tabs
+            &__tab
+            &__content
+                .box
+                    &__text ul 
+                        li
+                            font-size: 1rem
+
+        /* Tools section */
+        .tools
+            /* Gallery wrapper */
+            &__wrapper
+                margin: 0 5px
+                /* Card */
+                .tools-card
+                    flex-basis: 99%
+   
+        /* Practical example */
+        .practical
+            &__card 
+                height: auto
+                padding-bottom: 40px
+                .content
+                    padding: 25px!important
+                    height: auto!important
+                    flex-flow: column!important
+                    .left, .right
+                        width: 100%!important        
+                    .left
+                        padding-top: 40px
+                        order: 2
+                    .right
+                        order: 1
+                        .image-container
+                            position: relative!important
+                            height: 350px!important
+                            transform: translateX(0px)!important
+        /* More section */
+        .more
+            .more-cards
+                &__card
+                    &--face
+                        h1
+                            font-size: 1.5rem
+
+@media screen and (max-width: $smallTablet)
+    body 
+        /* Parallax */
+        .parallax 
+            height: 175px
+            span
+                font-size: 1rem
+                letter-spacing: 2px
+        
+        /* Section */
+        .section
+            padding: 40px 0px
+            .section__title h1
+                padding: 15px $hPadding / 2
+                font-size: 1.1rem
+
+        /* Tech section */
+        .tech .tech-tabs
+            &__tab
+                display: none
+            &__content
+                .box
+                    display: flex
+                    &__text
+                        padding: 0 $hPadding / 2
+                        .title-wrapper
+                            span
+                                font-size: 1.1rem
+                            img
+                                @include square(45px) 
+                        ul 
+                            list-style-type: disc
+                            li
+                                font-size: 1.2rem
+                    &__image
+                        img
+                            width: 100%
+
+        /* More section */
+        .more
+            .section__title
+                justify-content: center
+                padding-bottom: 15px
+                flex-wrap: wrap
+                h1
+                    flex-basis: 100%
+
+            .more-tabs
+                &__tab
+                    text-align: center
+                    
+            .more-cards
+                justify-content: center
+                &__card-wrapper
+                    flex-basis: 95%
+                    margin: 0
+
+@media screen and (max-width: $largePhone)
+    body 
+        /* More section */
+        .more
+            .more-tabs
+                &__tab
+                    flex-basis: 33%
+                    text-align: center
+
+@media screen and (max-width: $smallPhone)
+    body 
+        /* Tools section */
+        .tools
+            overflow: hidden
+            /* Gallery wrapper */
+            &__wrapper
+                padding: 0
+                margin: 0 5px
+                .tools-card
+                    .left
+                        width: 60%
+                        h3
+                            font-size: 0.9rem
+                        .image-wrapper
+                            img
+                                height: 70%
+
+                    .text
+                        font-size: .85rem
+
+        /* More section */
+        .more
+            .more-tabs
+                &__tab
+                    flex-basis: 50%
+                    text-align: center

@@ -1,7 +1,7 @@
 /* Global variables */
 // This is used for filtering cards in section "More"
-let moreTabs = document.getElementsByClassName("more__tabs__tab");
-let moreTabsActiveClassName = "more__tabs__tab--active";
+let moreTabs = document.getElementsByClassName("more-tabs__tab");
+let moreTabsActiveClassName = "more-tabs__tab--active";
 
 /* Main execution */
 
@@ -37,7 +37,7 @@ function solveTechTabs() {
 }
 
 function solveFixedNavbar() {
-    let navbar = document.getElementById("hero-navbar");
+    let navbar = document.getElementById("hero-navbar-container");
     /* Take the initial page Y offset - how many pixels are between the top of the page and the top of the screen view of the page */
     let pageYOffset = window.pageYOffset
 
@@ -56,9 +56,9 @@ function solveActiveNavbarTabs() {
 
     for (let object of anchorsAndLimits) {
         if (pageYOffset >= object.upLimit && pageYOffset < object.downLimit) {
-            object.anchor.classList.add("hero__tabs__item--active")
+            object.anchor.classList.add("navbar-item--active")
         } else {
-            object.anchor.classList.remove("hero__tabs__item--active")            
+            object.anchor.classList.remove("navbar-item--active")            
         }
     }
 }
@@ -67,14 +67,14 @@ function getAnchorsAndLimits() {
     let objects = []
 
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        if (!anchor.classList.contains("hero__tabs__item"))
+        if (!anchor.classList.contains("navbar-item"))
             return
 
         let bodyRect = document.body.getBoundingClientRect();
         let section = document.querySelector(anchor.getAttribute('href')).getBoundingClientRect()
 
-        let upLimit = section.top - bodyRect.top
-        let downLimit = section.bottom - bodyRect.top
+        let upLimit = section.top - bodyRect.top - 50
+        let downLimit = section.bottom - bodyRect.top - 50
 
         objects.push({
             anchor: anchor,
@@ -82,6 +82,9 @@ function getAnchorsAndLimits() {
             downLimit: downLimit
         });
     });
+
+    objects[objects.length - 2].downLimit -= 150 // Solve a bug in which Contact tab from navbar couldn't be highlightet
+    objects[objects.length - 1].upLimit -= 150
 
     return objects;
 }
@@ -115,7 +118,7 @@ function solveActiveCards(type) {
     let filterReset = type === ""; /* No type means no filter, then we should reset filters */
     let invisibleClass = "invisible";
 
-    let cards = document.getElementsByClassName("more__card-wrapper")
+    let cards = document.getElementsByClassName("more-cards__card-wrapper")
     if (filterReset) {
         /* We reset the invisible filter */
         removeClassFromElements(cards, invisibleClass)
