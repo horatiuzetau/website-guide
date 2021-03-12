@@ -24,6 +24,11 @@
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 88.94 82.01"><defs><style>.cls-1{fill:#ffffff;}</style></defs><g id="Layer_2" data-name="Layer 2"><g id="Layer_1-2" data-name="Layer 1"><path class="cls-1" d="M85.09,39.87a13.93,13.93,0,0,0-3.86-1.72L77,37l-3.81-1.06a7.85,7.85,0,0,1-2.84-1.39,2.89,2.89,0,0,1-1.09-2.35,3.41,3.41,0,0,1,1.58-2.87,7.12,7.12,0,0,1,4.2-1.12A6.47,6.47,0,0,1,79.6,29.7a5.42,5.42,0,0,1,1.77,4h7.32A12.08,12.08,0,0,0,84.93,25q-3.62-3.48-9.76-3.48T65.5,24.76a10.31,10.31,0,0,0-3.59,8A10.56,10.56,0,0,0,63,37.68a8.14,8.14,0,0,0,2.79,3.18,14,14,0,0,0,3.81,1.68l4.14,1.16,3.76,1a7.22,7.22,0,0,1,2.8,1.4,3,3,0,0,1,1.08,2.36,3.52,3.52,0,0,1-1.69,3.1A8.64,8.64,0,0,1,75,52.71a7.46,7.46,0,0,1-5.12-1.59,5.63,5.63,0,0,1-1.95-4H60.53a14.27,14.27,0,0,0,.9,4.45,12.44,12.44,0,0,0,2.38,3.89,10.77,10.77,0,0,0,4.35,2.84,18,18,0,0,0,6.4,1Q81,59.36,85,56.27a9.73,9.73,0,0,0,4-8,11.41,11.41,0,0,0-1.06-5.12A8.1,8.1,0,0,0,85.09,39.87Z"/><path class="cls-1" d="M67.16,79.58,37.43,45.74A7.44,7.44,0,0,1,37.67,36L67.16,2.44A7.4,7.4,0,0,1,72.34,0H36.91a7.38,7.38,0,0,0-5.48,2.42l0,0h0l0,0L1.93,36a7.44,7.44,0,0,0-.24,9.72L2,46,31.41,79.57h0v0A7.41,7.41,0,0,0,36.91,82H72.34a7.39,7.39,0,0,1-5.18-2.43Z"/></g></g>
                     </svg>
                 </a>
+                <div class="hero-navbar__hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
                 <div class="hero-navbar__container">
                     <a href="#hero-section" class="navbar-item navbar-item--active">Home</a>
                     <a href="#tech-section" class="navbar-item">Technologies</a>
@@ -93,8 +98,7 @@
                             <li>DOM (Document Object Model)</li>
                         </ul>
                     </div>
-                    <div class="box__image">
-                        <img src="/css/img/hero-section/bg-image.jpeg" alt="HTML code">
+                    <div id="box__image--html" class="box__image">
                     </div>
                 </div>
                <!-- CSS-BOX -->
@@ -117,7 +121,7 @@
                         </ul>
                     </div>
                     <!-- Box image wrapper -->
-                    <div class="box__image">
+                    <div id="box__image--sass" class="box__image">
                         <img src="/css/img/hero-section/bg-image.jpeg" alt="HTML code">
                     </div>
                 </div>
@@ -134,8 +138,7 @@
                             <li>AJAX (Async Javascript and XML)</li>
                         </ul>
                     </div>
-                    <div class="box__image">
-                        <img src="/css/img/hero-section/bg-image.jpeg" alt="HTML code">
+                    <div id="box__image--js" class="box__image">
                     </div>
                 </div>
                <!-- Adobe XD-BOX -->
@@ -154,7 +157,7 @@
                         </ul>
                     </div>
                     <div class="box__image">
-                        <img src="/css/img/hero-section/bg-image.jpeg" alt="HTML code">
+                        <img src="/css/img/tech-section/adobexd-view.jpg" alt="Adobe XD program">
                     </div>
                 </div>
             </div>  
@@ -219,17 +222,14 @@
         <!-- <span>text</span> -->
     </div>
 
-    <!-- 4. Accessibility (find(Accessibility))-->
+    <!-- 4. Accessibility, Google indexing and hosting (find(Accessibility, Google indexing and hosting))-->
     <div id="accessibility-section" class="accessibility section">
         <div class="section__title section__title--white">
-            <h1>Accessibility</h1>
+            <h1>Accessibility, Google indexing and hosting</h1>
         </div>   
 
         <div class="card-container">
-            <div class="card-container__card">Ceva de scris</div>
-            <div class="card-container__card">Colomolo</div>
-            <div class="card-container__card">Sandromeda</div>
-            <div class="card-container__card">E</div>
+            <div class="card-container__card">To be continued...</div>
         </div>
     </div>
 
@@ -406,9 +406,6 @@
                 <div tabindex="0" data-type="challenges" class="more-tabs__tab">
                     Challenges
                 </div>
-                <div tabindex="0" data-type="battle" class="more-tabs__tab">
-                    Battle
-                </div>
                 <div tabindex="0" data-type="courses" class="more-tabs__tab">
                     Courses
                 </div>
@@ -428,81 +425,165 @@
                         </div>
                     </div>
                     <div class="more-cards__card--back">
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing, elit. Id rerum inventore, assumenda mos repellat.</p>
+                        <p>Super cool UI & UX.</p>
                         <a href="https://waaark.com/">Go to link</a>
+                    </div>
+                </div>
+            </div>
+            <div class="more-cards__card-wrapper" data-type="challenges">
+                <div class="more-cards__card">
+                    <div class="more-cards__card--face">
+                        <h1>CSSbattle</h1>
+                        <div class="image-container">
+                            <img src="/css/img/more-section/cssbattle.jpg" alt="CSSbattle website image">                    
+                        </div>
+                    </div>
+                    <div class="more-cards__card--back">
+                        <p>Practice your CSS skills here. There are a lot of contests to test your knowledge.</p>
+                        <a href="https://cssbattle.dev/">Go to link</a>
+                    </div>
+                </div>
+            </div>
+            <div class="more-cards__card-wrapper" data-type="courses">
+                <div class="more-cards__card">
+                    <div class="more-cards__card--face">
+                        <h1>egghead.io</h1>
+                        <div class="image-container">
+                            <img src="/css/img/more-section/egghead.jpg" alt="Egghead website image">                    
+                        </div>
+                    </div>
+                    <div class="more-cards__card--back">
+                        <p>Learn more about web development technologies.</p>
+                        <a href="https://egghead.io/">Go to link</a>
+                    </div>
+                </div>
+            </div>
+            <div class="more-cards__card-wrapper" data-type="courses">
+                <div class="more-cards__card">
+                    <div class="more-cards__card--face">
+                        <h1>FrontEnd Masters</h1>
+                        <div class="image-container">
+                            <img src="/css/img/more-section/frontendmasters.jpg" alt="FrontEnd Masters website image">                    
+                        </div>
+                    </div>
+                    <div class="more-cards__card--back">
+                        <p>Learn more about web development technologies.</p>
+                        <a href="https://frontendmasters.com/">Go to link</a>
+                    </div>
+                </div>
+            </div>
+            <div class="more-cards__card-wrapper" data-type="challenges">
+                <div class="more-cards__card">
+                    <div class="more-cards__card--face">
+                        <h1>100 days CSS</h1>
+                        <div class="image-container">
+                            <img src="/css/img/more-section/100dayscss.jpg" alt="100days CSS website image">                    
+                        </div>
+                    </div>
+                    <div class="more-cards__card--back">
+                        <p>Practice your CSS skills here. New challenge every day.</p>
+                        <a href="https://100dayscss.com/">Go to link</a>
+                    </div>
+                </div>
+            </div>
+            <div class="more-cards__card-wrapper" data-type="websites">
+                <div class="more-cards__card">
+                    <div class="more-cards__card--face">
+                        <h1>CSS design awards</h1>
+                        <div class="image-container">
+                            <img src="/css/img/more-section/cssdesignawards.jpg" alt="CSS design awards website image">                    
+                        </div>
+                    </div>
+                    <div class="more-cards__card--back">
+                        <p>Lots of creativity from awarded websites. Good for inspiration & motivation.</p>
+                        <a href="https://www.cssdesignawards.com/">Go to link</a>
                     </div>
                 </div>
             </div>
             <div class="more-cards__card-wrapper" data-type="youtube">
                 <div class="more-cards__card">
                     <div class="more-cards__card--face">
-                        <h1>Youtube</h1>
+                        <h1>Dev Ed</h1>
                         <div class="image-container">
-                            <img src="css/img/more-section/waaark.jpg" alt="Waaark website image">                    
+                            <img src="/css/img/more-section/deved.jpg" alt="Dev Ed youtube page">                    
                         </div>
                     </div>
                     <div class="more-cards__card--back">
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing, elit. Id rerum inventore, assumenda mos repellat.</p>
-                        <a href="https://waaark.com/">Go to link</a>
+                        <p>Web development related content. (he's romanian)</p>
+                        <a href="https://www.youtube.com/channel/UClb90NQQcskPUGDIXsQEz5Q">Go to link</a>
+                    </div>
+                </div>
+            </div>
+            <div class="more-cards__card-wrapper" data-type="websites">
+                <div class="more-cards__card">
+                    <div class="more-cards__card--face">
+                        <h1>Awwwards</h1>
+                        <div class="image-container">
+                            <img src="/css/img/more-section/awwwards.jpg" alt="Awwwards website image">                    
+                        </div>
+                    </div>
+                    <div class="more-cards__card--back">
+                        <p>Lots of creativity from awarded websites. Good for inspiration & motivation.</p>
+                        <a href="https://www.awwwards.com/">Go to link</a>
                     </div>
                 </div>
             </div>
             <div class="more-cards__card-wrapper" data-type="youtube">
                 <div class="more-cards__card">
                     <div class="more-cards__card--face">
-                        <h1>Youtube</h1>
+                        <h1>DevTips</h1>
                         <div class="image-container">
-                            <img src="css/img/more-section/waaark.jpg" alt="Waaark website image">                    
+                            <img src="/css/img/more-section/devtips.jpg" alt="Devtips youtube page">                    
                         </div>
                     </div>
                     <div class="more-cards__card--back">
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing, elit. Id rerum inventore, assumenda mos repellat.</p>
-                        <a href="https://waaark.com/">Go to link</a>
+                        <p>Explanations on Sass and comparation between Sass & Scss. He explains basic concepts very well. (check his channel)</p>
+                        <a href="https://www.youtube.com/watch?v=1XmUUa_pWw8&list=PLqGj3iMvMa4LE0uTAwo9wIFQYuGhIu7Gw&ab_channel=DevTips">Go to link</a>
                     </div>
                 </div>
-            </div>    
-            <div class="more-cards__card-wrapper" data-type="challenges">
-                <div class="more-cards__card">
-                    <div class="more-cards__card--face">
-                        <h1>Challenges</h1>
-                        <div class="image-container">
-                            <img src="css/img/more-section/waaark.jpg" alt="Waaark website image">                    
-                        </div>
-                    </div>
-                    <div class="more-cards__card--back">
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing, elit. Id rerum inventore, assumenda mos repellat.</p>
-                        <a href="https://waaark.com/">Go to link</a>
-                    </div>
-                </div>
-            </div>  
-            <div class="more-cards__card-wrapper" data-type="challenges">
-                <div class="more-cards__card">
-                    <div class="more-cards__card--face">
-                        <h1>Challenges</h1>
-                        <div class="image-container">
-                            <img src="css/img/more-section/waaark.jpg" alt="Waaark website image">                    
-                        </div>
-                    </div>
-                    <div class="more-cards__card--back">
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing, elit. Id rerum inventore, assumenda mos repellat.</p>
-                        <a href="https://waaark.com/">Go to link</a>
-                    </div>
-                </div>
-            </div>  
+            </div>
             <div class="more-cards__card-wrapper" data-type="youtube">
                 <div class="more-cards__card">
                     <div class="more-cards__card--face">
-                        <h1>Youtube</h1>
+                        <h1>The coding train</h1>
                         <div class="image-container">
-                            <img src="css/img/more-section/waaark.jpg" alt="Waaark website image">                    
+                            <img src="/css/img/more-section/thecodingtrain.jpg" alt="The coding train youtube page">                    
                         </div>
                     </div>
                     <div class="more-cards__card--back">
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing, elit. Id rerum inventore, assumenda mos repellat.</p>
-                        <a href="https://waaark.com/">Go to link</a>
+                        <p>Math & JavaScript problem solving. This guy is having fun, while inspiring us to do the same.</p>
+                        <a href="https://www.youtube.com/user/shiffman">Go to link</a>
                     </div>
                 </div>
-            </div>  
+            </div>
+           <div class="more-cards__card-wrapper" data-type="courses">
+                <div class="more-cards__card">
+                    <div class="more-cards__card--face">
+                        <h1>FrontEnd Masters handbook</h1>
+                        <div class="image-container">
+                            <img src="/css/img/more-section/frontendmasters-handbook.jpg" alt="FrontEnd Masters Handbook cover preview">
+                        </div>
+                    </div>
+                    <div class="more-cards__card--back">
+                        <p>Very, very, very powerfull handbook - everything you need to know about web dev.</p>
+                        <a href="https://frontendmasters.com/books/front-end-handbook/2019/">Go to link</a>
+                    </div>
+                </div>
+            </div>
+            <div class="more-cards__card-wrapper" data-type="challenges">
+                <div class="more-cards__card">
+                    <div class="more-cards__card--face">
+                        <h1>Front end challenges</h1>
+                        <div class="image-container">
+                            <img src="/css/img/more-section/frontend-challenges.jpg" alt="Frontend challenges article preview">
+                        </div>
+                    </div>
+                    <div class="more-cards__card--back">
+                        <p>A list with more front end challenges. Also, check out css-tricks.com for more related content and tutorials.</p>
+                        <a href="https://css-tricks.com/front-end-challenges/">Go to link</a>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 

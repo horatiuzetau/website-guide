@@ -1,10 +1,9 @@
 /** VARIABLES **/
-
 $primary    : #2d2b6d
 $secondary  : #c92e6d
 
 $techTabs    : [html, css, js, xd]
-$moreTabs    : [youtube, battle, challenges, courses, websites]
+$moreTabs    : [youtube, challenges, courses, websites]
 $moreColors  : #2b6d2c, #6d2b6c, #6c6d2b, #6d2c2b, #2b6c6d
 
 $navbarHeight  : 60px
@@ -16,7 +15,7 @@ $semiBold  : 600
 $bold      : 700
 
 $heroOverlayOpacity      : .75
-$parallaxOverlayOpacity  : .85
+$parallaxOverlayOpacity  : .65
 $maxWidthBody            : 1920px
 
 /* Query values */
@@ -207,6 +206,42 @@ body
                     svg
                         height: 100%
 
+                &__hamburger
+                    @include center
+                    @include square(30px)
+                    position: relative
+                    cursor: pointer
+                    display: none
+
+                    span
+                        @include basicTransition(all)
+                        position: absolute
+                        width: 100%
+                        height: 4px
+                        background-color: white
+                        border-radius: 15px
+                        transform-origin: center
+
+                        &:nth-child(1)
+                            transform: translateY(8px)
+
+                        &:nth-child(3)
+                            transform: translateY(-8px)
+
+                    &.active
+                        span
+                            &:nth-child(1), &:nth-child(3)
+                                transform: translateY(0px)
+                            &:nth-child(2)
+                                opacity: 0
+                            &:nth-child(1)
+                                transform: rotateZ(135deg)
+                            &:nth-child(3)  
+                                transform: rotateZ(-135deg)
+
+                        &~.hero-navbar__container
+                            display: flex!important
+
                 &__container
                     @include center
                     height: 100%
@@ -348,7 +383,7 @@ body
                     /* Text content of the box */
                     &__text
                         @include align(flex-start, flex-start, column)
-                        width: 50%
+                        width: 40%
                         height: 100%
                         padding: 1.5rem
                         position: relative
@@ -397,10 +432,15 @@ body
 
                     /* Image of the box */
                     &__image
+                        @include center
                         height: 100%
-                        width: 50%
+                        width: 60%
                         overflow: hidden
                         padding: $hPadding 
+
+                        span
+                            &:hover
+                                background-color: yellow!important
 
                         img
                             width: 100%
@@ -641,10 +681,10 @@ body
                             .image-overlay
                                 opacity: 1
 
-    /* 4. Accessibility (find(Accessibility)) */
+    /* 4. Accessibility, Google indexing and hosting (find(Accessibility, Google indexing and hosting)) */
     .accessibility
         position: relative
-        height: 700px
+        height: 400px
         margin-top: 0
         background-color: $primary
 
@@ -659,16 +699,15 @@ body
             background: linear-gradient(0deg, rgba(45,43,109,1) 0%, rgba(255,255,255,0) 100%)
 
         .card-container
-            @include align(center, center)
+            @include center
             flex-wrap: wrap
             width: 100%
             margin-top: 50px
 
             &__card
                 @include align(flex-start, center)
-                flex-basis: 25%
+                flex-basis: 100%
                 padding: 20px
-                font-weight: $semiBold
                 border: 5px solid $primary
                 background-color: darken(white, 10)
 
@@ -826,7 +865,8 @@ body
                         color: white
                         z-index: 1
                         font-size: 2.5rem
-                        letter-spacing: 5px
+                        letter-spacing: 3px
+                        text-align: center
 
                 /* Card back */
                 &--back
@@ -938,7 +978,13 @@ body
                     flex-basis: 33%
                     .left .image-wrapper img
                                 height: 70%
-
+      
+        /* Tech section */
+        .tech .tech-tabs__content
+            .box
+                &__text
+                    ul 
+                        list-style-type: disc
         /* More section */
         .more
             .more-cards
@@ -947,16 +993,6 @@ body
 
 @media screen and (max-width: $laptop)
     body 
-        /* Parallax */
-        .parallax 
-            span
-                text-align: center
-                letter-spacing: 5px
-                font-size: 1.5rem
-        .section
-            padding: 60px $hPadding / 2
-            .section__title h1
-                font-size: 2rem
 
         /* Hero section */
         .hero
@@ -967,8 +1003,49 @@ body
                     font-size: 2rem
                 span
                     font-size: 1rem
+                
             .hero-navbar-container
                 padding: 0
+
+                .hero-navbar
+                    top: 0
+
+                    &__hamburger
+                        display: flex
+
+                    &__container
+                        @include basicTransition(all)
+                        position: absolute
+                        top: $navbarHeight + 3px
+                        box-shadow: -5px 10px 10px 3px rgba(black, .1)
+                        right: 0
+                        width: 200px
+                        height: auto
+                        flex-flow: column
+                        background-color: transparent
+                        align-items: flex-end
+                        padding: 10px $hPadding
+                        display:none!important
+
+                        .navbar-item
+                            padding: 10px 0
+
+                &.fixed
+                    .hero-navbar
+                        &__container
+                            background-color: $primary
+
+        /* Parallax */
+        .parallax 
+            span
+                text-align: center
+                letter-spacing: 5px
+                font-size: 1.5rem
+        .section
+            padding: 60px $hPadding / 2
+            .section__title h1
+                font-size: 2rem
+           
 
         /* Tech section */
         .tech .tech-tabs__content
@@ -978,13 +1055,15 @@ body
 
                 &__text
                     width: 100%
-                
+                    ul 
+                        li
+                            margin: 0 10px
+                            font-size: 1.5rem
                 &__image
                     @include center
-                    order: -1
                     width: 100%
                     background-color: rgba($primary, .02)
-                    padding: $hPadding 0
+                    padding: 20px 0 
                     margin-top: 10px
 
                     img
@@ -1034,13 +1113,9 @@ body
             height: 250px
 
         /* Tech section */
-        .tech .tech-tabs
-            &__tab
-            &__content
-                .box
-                    &__text ul 
-                        li
-                            font-size: 1rem
+        .tech .tech-tabs__content .box
+            &__text ul li
+                font-size: 1.3rem
 
         /* Tools section */
         .tools
@@ -1050,7 +1125,11 @@ body
                 /* Card */
                 .tools-card
                     flex-basis: 99%
-   
+
+        /* Tech section */
+        .tech .tech-tabs__content
+            width: 100%
+
         /* Practical example */
         .practical
             &__card 
@@ -1081,6 +1160,9 @@ body
 
 @media screen and (max-width: $smallTablet)
     body 
+        .hero .hero-navbar-container .hero-navbar__container
+            .navbar-item
+                padding: 5px 0
         /* Parallax */
         .parallax 
             height: 175px
@@ -1090,7 +1172,7 @@ body
         
         /* Section */
         .section
-            padding: 40px 0px
+            padding: 60px 0px
             .section__title h1
                 padding: 15px $hPadding / 2
                 font-size: 1.1rem
